@@ -1,0 +1,225 @@
+﻿The IVS.WS.TEP Project builds a WCF webservice dll file used for the IVS.WS.TEP webservice.
+The IVS.WS.TEP webservice receives communication from the TEP clients.
+The IVS.WS.TEP webservice communicates with the IVS.WS.Decode webservice and SQL server and passes information back to the TEP clients.
+
+Dependency:
+	IVS.Data.TEP.dll - Data access file. Webservice > SQL Server communication
+	IVS.Applog.dll - Application logging
+
+App.config File:
+The App.Config (IVS.WS.TEP.dll.config) file for the IVS.WS.TEP needs to have the bindings for the IVS.WS.Decode webservice
+
+<?xml version="1.0"?>
+<configuration>
+  <system.web>
+    <compilation debug="true"/>
+  </system.web>
+  <!-- When deploying the service library project, the content of the config file must be added to the host's 
+  app.config file. System.Configuration does not support config files for libraries. -->
+  <system.serviceModel>
+    <bindings>
+      <basicHttpBinding>
+        <binding name="Dev" closeTimeout="00:01:00" openTimeout="00:01:00"
+          receiveTimeout="00:10:00" sendTimeout="00:01:00" allowCookies="false"
+          bypassProxyOnLocal="false" hostNameComparisonMode="StrongWildcard"
+          maxBufferSize="65536" maxBufferPoolSize="524288" maxReceivedMessageSize="65536"
+          messageEncoding="Text" textEncoding="utf-8" transferMode="Buffered"
+          useDefaultWebProxy="true">
+          <readerQuotas maxDepth="32" maxStringContentLength="8192" maxArrayLength="16384"
+            maxBytesPerRead="4096" maxNameTableCharCount="16384" />
+          <security mode="None">
+            <transport clientCredentialType="None" proxyCredentialType="None"
+              realm="" />
+            <message clientCredentialType="UserName" algorithmSuite="Default" />
+          </security>
+        </binding>
+      </basicHttpBinding>
+      <wsHttpBinding>
+        <binding name="SSL" closeTimeout="00:01:00" openTimeout="00:01:00"
+          receiveTimeout="00:10:00" sendTimeout="00:01:00" bypassProxyOnLocal="false"
+          transactionFlow="false" hostNameComparisonMode="StrongWildcard"
+          maxBufferPoolSize="524288" maxReceivedMessageSize="65536" messageEncoding="Mtom"
+          textEncoding="utf-8" useDefaultWebProxy="true" allowCookies="false">
+          <readerQuotas maxDepth="32" maxStringContentLength="8192" maxArrayLength="16384"
+            maxBytesPerRead="4096" maxNameTableCharCount="16384" />
+          <reliableSession ordered="true" inactivityTimeout="00:10:00"
+            enabled="false" />
+          <security mode="Transport">
+            <transport clientCredentialType="None" proxyCredentialType="None"
+              realm="" />
+            <message clientCredentialType="Windows" negotiateServiceCredential="true" />
+          </security>
+        </binding>
+      </wsHttpBinding>
+    </bindings>
+    <client>
+      <endpoint address="http://ivs-decode.trafficed.net/IVS.WS.Decode.IVSDecodeService.svc"
+        binding="basicHttpBinding" bindingConfiguration="Dev" contract="IVSDecodeService.IIVSDecode"
+        name="Dev" />
+      <endpoint address="https://ivs-decode.trafficed.net/IVS.WS.Decode.IVSDecodeService.svc/Encrypted"
+        binding="wsHttpBinding" bindingConfiguration="SSL" contract="IVSDecodeService.IIVSDecode"
+        name="SSL">
+        <identity>
+          <dns value="localhost" />
+        </identity>
+      </endpoint>
+    </client>
+      <services>
+          <service name="IVS.WS.TEP.IVSService">
+              <endpoint address="" binding="wsHttpBinding" contract="IVS.WS.TEP.IIVS">
+                  <identity>
+                      <dns value="localhost" />
+                  </identity>
+              </endpoint>
+              <endpoint address="mex" binding="mexHttpBinding" contract="IMetadataExchange" />
+              <host>
+                  <baseAddresses>
+                      <add baseAddress="http://localhost:8732/Design_Time_Addresses/IVS.WS.TEP/Service1/" />
+                  </baseAddresses>
+              </host>
+          </service>
+      </services>
+      <behaviors>
+          <serviceBehaviors>
+              <behavior>
+                  <!-- To avoid disclosing metadata information, 
+          set the value below to false and remove the metadata endpoint above before deployment -->
+                  <serviceMetadata httpGetEnabled="False"/>
+                  <!-- To receive exception details in faults for debugging purposes, 
+          set the value below to true.  Set to false before deployment 
+          to avoid disclosing exception information -->
+                  <serviceDebug includeExceptionDetailInFaults="False" />
+              </behavior>
+          </serviceBehaviors>
+      </behaviors>
+  </system.serviceModel>
+<startup><supportedRuntime version="v4.0" sku=".NETFramework,Version=v4.0,Profile=Client"/></startup></configuration>
+
+Webserver:
+The root folder needs to have the following files:
+	IVS.WS.TEP.IVSService
+	web.config
+
+The bin folder needs to contain the following files:
+	IVS.Applog.dll
+	IVS.Data.TEP.dll
+	IVS.WS.TEP.dll
+	IVS.WS.TEP.dll.config
+
+WEB.CONFIG FILE:
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections>
+  </configSections>
+  <connectionStrings>
+    <add name="IVS.WS.TEP.My.MySettings.ConnectionString" connectionString="Data Source=DIVSOL;Initial Catalog=IVS_Test;Persist Security Info=True;User ID=ivs_test;Password=D1v3r10n"
+      providerName="System.Data.SqlClient" />
+  </connectionStrings>
+  <system.web>
+    <compilation debug="true" />
+    <healthMonitoring>
+      <eventMappings>
+        <clear/>
+        <add name="All Errors" type="System.Web.Management.WebBaseErrorEvent,System.Web,Version=2.0.0.0,Culture=neutral,PublicKeyToken=b03f5f7f11d50a3a" startEventCode="0" endEventCode="2147483647"/>
+      </eventMappings>
+      <providers>
+        <clear/>
+        <add connectionStringName="IVS.WS.TEP.My.MySettings.ConnectionString" maxEventDetailsLength="1073741823" buffer="false" bufferMode="Notification" name="SqlWebEventProvider" type="System.Web.Management.SqlWebEventProvider"/>
+      </providers>
+      <rules>
+        <clear/>
+        <add name="All Errors Default" eventName="All Errors" provider="SqlWebEventProvider" profile="Default" minInstances="1" maxLimit="Infinite" minInterval="00:00:00" custom=""/>
+      </rules>
+    </healthMonitoring>
+  </system.web>
+  <!-- When deploying the service library project, the content of the config file must be added to the host's 
+  app.config file. System.Configuration does not support config files for libraries. -->
+  <system.serviceModel>
+    <bindings>
+      <basicHttpBinding>
+        <binding name="Dev" closeTimeout="00:01:00" openTimeout="00:01:00"
+          receiveTimeout="00:10:00" sendTimeout="00:01:00" allowCookies="false"
+          bypassProxyOnLocal="false" hostNameComparisonMode="StrongWildcard"
+          maxBufferSize="65536" maxBufferPoolSize="524288" maxReceivedMessageSize="65536"
+          messageEncoding="Text" textEncoding="utf-8" transferMode="Buffered"
+          useDefaultWebProxy="true">
+          <readerQuotas maxDepth="32" maxStringContentLength="8192" maxArrayLength="16384"
+            maxBytesPerRead="4096" maxNameTableCharCount="16384" />
+          <security mode="None">
+            <transport clientCredentialType="None" proxyCredentialType="None"
+              realm="" />
+            <message clientCredentialType="UserName" algorithmSuite="Default" />
+          </security>
+        </binding>
+      </basicHttpBinding>
+      <wsHttpBinding>
+        <binding name="SSL" closeTimeout="00:01:00" openTimeout="00:01:00"
+          receiveTimeout="00:10:00" sendTimeout="00:01:00" bypassProxyOnLocal="false"
+          transactionFlow="false" hostNameComparisonMode="StrongWildcard"
+          maxBufferPoolSize="524288" maxReceivedMessageSize="65536" messageEncoding="Text"
+          textEncoding="utf-8" useDefaultWebProxy="true" allowCookies="false">
+          <readerQuotas maxDepth="32" maxStringContentLength="8192" maxArrayLength="16384"
+            maxBytesPerRead="4096" maxNameTableCharCount="16384" />
+          <reliableSession ordered="true" inactivityTimeout="00:10:00"
+            enabled="false" />
+          <security mode="Transport">
+            <transport clientCredentialType="None" proxyCredentialType="None"
+              realm="" />
+            <message clientCredentialType="Windows" negotiateServiceCredential="true" />
+          </security>
+        </binding>
+        <binding name="BindingSSL">
+          <security mode="Transport">
+            <transport clientCredentialType="None" />
+          </security>
+        </binding>
+      </wsHttpBinding>
+    </bindings>
+    <client>
+      <endpoint address="http://IVS-Decode.Trafficed.net/IVS.WS.Decode.IVSDecodeService.svc"
+        binding="basicHttpBinding" bindingConfiguration="Dev" contract="IVSDecodeService.IIVSDecode"
+        name="Dev" />
+      <endpoint address="https://IVS-Decode.Trafficed.net/IVS.WS.Decode.IVSDecodeService.svc/Encrypted"
+        binding="wsHttpBinding" bindingConfiguration="SSL" contract="IVSDecodeService.IIVSDecode"
+        name="SSL">
+        <identity>
+          <dns value="localhost" />
+        </identity>
+      </endpoint>
+    </client>
+    <services>
+      <service name="IVS.WS.TEP.IVSService">
+        <endpoint name="Dev" address="http://IVS-Test.Trafficed.net/IVS.WS.TEP.IVSService.svc" binding="wsHttpBinding" contract="IVS.WS.TEP.IIVS">
+          <identity>
+            <dns value="localhost" />
+          </identity>
+        </endpoint>
+        <endpoint name="SSL" address="https://IVS-Test.Trafficed.net/IVS.WS.TEP.IVSService.svc/Encrypted" binding="wsHttpBinding" contract="IVS.WS.TEP.IIVS" bindingConfiguration="BindingSSL">
+          <identity>
+            <dns value="localhost" />
+          </identity>
+        </endpoint>
+        <endpoint address="mex" binding="mexHttpBinding" contract="IMetadataExchange" />
+        <host>
+          <baseAddresses>
+            <add baseAddress="http://IVS-Test.Trafficed.net/IVS.WS.TEP/Service1/" />
+          </baseAddresses>
+        </host>
+      </service>
+    </services>
+    <behaviors>
+      <serviceBehaviors>
+        <behavior>
+          <!-- To avoid disclosing metadata information, 
+          set the value below to false and remove the metadata endpoint above before deployment -->
+          <serviceMetadata httpGetEnabled="False"/>
+          <!-- To receive exception details in faults for debugging purposes, 
+          set the value below to true.  Set to false before deployment 
+          to avoid disclosing exception information -->
+          <serviceDebug includeExceptionDetailInFaults="False" />
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+  </system.serviceModel>
+</configuration>
+

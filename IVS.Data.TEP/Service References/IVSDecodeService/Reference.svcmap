@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="86c7cccb-ada1-4e30-9bfa-aa125852388b" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://ivs-decode.trafficed.net/IVS.WS.Decode.IVSDecodeService.svc" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="IVS.xsd" MetadataType="Schema" ID="cb56e60a-89e7-4248-9959-070d21ae28e4" SourceId="1" SourceUrl="http://ivs-decode.trafficed.net/IVS.WS.Decode.IVSDecodeService.svc?xsd=xsd0" />
+    <MetadataFile FileName="IVSDecodeService.wsdl" MetadataType="Wsdl" ID="ff447633-fdcd-4819-b085-99a8dd9d716e" SourceId="1" SourceUrl="http://ivs-decode.trafficed.net/IVS.WS.Decode.IVSDecodeService.svc?wsdl" />
+    <MetadataFile FileName="IVS.disco" MetadataType="Disco" ID="1e8f9ff2-4b06-4048-90e6-f7613142fb8f" SourceId="1" SourceUrl="http://ivs-decode.trafficed.net/IVS.WS.Decode.IVSDecodeService.svc?disco" />
+    <MetadataFile FileName="IVS1.xsd" MetadataType="Schema" ID="d0d5bc0e-9923-4f42-8e10-0c7892134c99" SourceId="1" SourceUrl="http://ivs-decode.trafficed.net/IVS.WS.Decode.IVSDecodeService.svc?xsd=xsd1" />
+    <MetadataFile FileName="IVS2.xsd" MetadataType="Schema" ID="be17ca8b-45a4-4882-9d75-16fb9ad8c334" SourceId="1" SourceUrl="http://ivs-decode.trafficed.net/IVS.WS.Decode.IVSDecodeService.svc?xsd=xsd2" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

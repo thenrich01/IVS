@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="39badc49-9096-4946-9077-bea4b6d217ea" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://ivs-tepdemo.trafficed.net/IVS.WS.GrandRapids.IVSService.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="11786b9d-7983-4684-886d-30cc3c8a6e26" SourceId="1" SourceUrl="http://ivs-tepdemo.trafficed.net/IVS.WS.GrandRapids.IVSService.svc/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="1fc2b5ee-de4b-426a-9b17-faf80b9a3418" SourceId="1" SourceUrl="http://ivs-tepdemo.trafficed.net/IVS.WS.GrandRapids.IVSService.svc/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="2396efeb-69e3-44b8-8a9e-961991bd279b" SourceId="1" SourceUrl="http://ivs-tepdemo.trafficed.net/IVS.WS.GrandRapids.IVSService.svc/mex" />
+    <MetadataFile FileName="IVS.Data.GrandRapids.xsd" MetadataType="Schema" ID="496413f9-43e0-4778-be71-0f72262a4604" SourceId="1" SourceUrl="http://ivs-tepdemo.trafficed.net/IVS.WS.GrandRapids.IVSService.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

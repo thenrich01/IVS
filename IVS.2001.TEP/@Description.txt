@@ -1,0 +1,22 @@
+﻿IVS.2001 - SNARE Law Enforcement Edition
+Web Service
+TEP Edition
+
+Dependency:
+IVS.Applog > ivs.applog.dll
+IVS.Data.WS.TEP > ivs.data.WS.TEP.dll
+IVS.License > ivs.license.dll
+IVS.CTS > ivs.Cts.dll
+IVS.Eseek > ivs.eseek.dll
+IVS.ESeek.M280 > ivs.eseek.m280.dll
+IVS.Magtek > ivs.magtek.dll
+
+Web Service Endpoints:
+
+http://ivs-tepdemo.trafficed.net/IVS.WS.GrandRapids.IVSService.svc/mex
+
+http://IVS-GrandRapids.Trafficed.net/IVS.WS.GrandRapids.IVSService.svc
+
+http://IVS-springlakepark.Trafficed.net/IVS.WS.TEP.IVSService.svc
+
+http://IVS-Test.Trafficed.net/IVS.WS.TEP.IVSService.svc

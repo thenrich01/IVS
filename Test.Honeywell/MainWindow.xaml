@@ -1,0 +1,11 @@
+﻿<Window x:Class="MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="24,12,0,0" Name="cboDevicePort" VerticalAlignment="Top" Width="120" />
+        <Button Content="Connect" Height="23" HorizontalAlignment="Left" Margin="189,12,0,0" Name="cmdConnect" VerticalAlignment="Top" Width="75" />
+        <TextBox Height="230" HorizontalAlignment="Left" Margin="6,69,0,0" Name="TextBox1" VerticalAlignment="Top" Width="485" VerticalScrollBarVisibility="Auto" />
+        <Button Content="Verify" Height="23" HorizontalAlignment="Right" Margin="0,12,12,0" Name="cmdVerifyDevice" VerticalAlignment="Top" Width="75" />
+    </Grid>
+</Window>

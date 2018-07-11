@@ -1,0 +1,11 @@
+﻿<Window x:Class="WinUnderAge"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Style="{StaticResource WinUnderAge}">
+    <Grid>
+        <Label Name="lblName" Content="John Smith" Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="328" HorizontalContentAlignment="Center" />
+        <Label Name="lblAge" Content="is 99 years old" Margin="0,40,0,0" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalAlignment="Top" Width="328" />
+        <Label Name="lbMinimumlAge" Content="and is under the minimum age of 21" Margin="0,70,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="328" HorizontalContentAlignment="Center" />
+        <Button Name="cmdOK" Content="OK" Margin="128,110,0,0" Style="{StaticResource cmdButton}" />
+    </Grid>
+</Window>

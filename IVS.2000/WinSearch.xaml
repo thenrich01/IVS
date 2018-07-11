@@ -1,0 +1,147 @@
+﻿<Window x:Class="WinSearch"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Style="{StaticResource WinSearch}">
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate x:Key="ImageAvailableColumnTemplate" >
+                <ContentControl x:Name="MyContentControl" Content="{Binding}" />
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding ImageAvailable}" Value="TRUE">
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Button Click="dgSearchResults_CmdViewImage_Click">
+                                        <Button.Content>
+                                            <Image Source="Resources/User1.png" ToolTip="View image" Height="14"/>
+                                        </Button.Content>
+                                    </Button>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding ImageAvailable}" Value="FALSE" >
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Image Source="Resources/Cancel__Red.png" ToolTip="Image not available" Height="14"/>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+        </Grid.Resources>
+        <DataGrid Name="dgSearchResults" Margin="200,5,0,0" Style="{StaticResource dgSearch}" Height="534">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="dgSearchResults_CmdView_Click">
+                                <Button.Content>
+                                    <Image Source="Resources/MagnifyingGlass.png" ToolTip="View details" Height="14"/>
+                                </Button.Content>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="dgSearchResults_CmdDelete_Click">
+                                <Button.Content>
+                                    <Image Source="Resources/DeleteRed.png" ToolTip="Delete Record" Height="14"/>
+                                </Button.Content>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn CellTemplate="{StaticResource ImageAvailableColumnTemplate}" />
+                <DataGridTextColumn Binding="{Binding SwipeScanTS,StringFormat={}\{0:MM/dd/yyyy\}}" Header="Date" />
+                <DataGridTextColumn Binding="{Binding SwipeScanTS,StringFormat=t}" Header="Time"/>
+                <DataGridTextColumn Binding="{Binding SwipeScanType}" Header="Scan Type" />
+                <DataGridTextColumn Binding="{Binding CaseID}" Header="Case ID" />
+                <DataGridTextColumn Binding="{Binding IDAccountNumber}" Header="ID Account" />
+                <DataGridTextColumn Binding="{Binding NameLast}" Header="Last Name" />
+                <DataGridTextColumn Binding="{Binding NameFirst}" Header="First Name" />
+                <DataGridTextColumn Binding="{Binding DateOfBirth}" Header="Date of Birth" />
+                <DataGridTextColumn Binding="{Binding Location}" Header="Location" />
+                <DataGridTextColumn Binding="{Binding Station}" Header="Station" />
+                <DataGridTextColumn Binding="{Binding UserName}" Header="User" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Name="lblSwipeScanType" Content="Scan Type:" HorizontalAlignment="Left" Margin="5,5,0,0" VerticalAlignment="Top" />
+        <ComboBox Name="cboSwipeScanType" Text="-Select a Scan Type-" HorizontalAlignment="Left" Margin="5,30,0,0" VerticalAlignment="Top" Width="160" IsReadOnly="True" IsEditable="True" />
+        <Button Name="cmdClearSwipeScanType" Margin="170,30,0,0" ToolTip="Clear Scan Type criteria" Style="{StaticResource CommandImageStyle}">
+            <Button.Content>
+                <Image Source="Resources/DeleteRed.png" Name="Image1" />
+            </Button.Content>
+        </Button>
+        <Label Name="lblCaseID" Content="Case ID:" HorizontalAlignment="Left" Margin="5,55,0,0" VerticalAlignment="Top" />
+        <TextBox Name="txtCaseID" Height="23" HorizontalAlignment="Left" Margin="5,80,0,0" VerticalAlignment="Top" Width="160" />
+        <Button Name="cmdClearCaseID" Margin="170,80,0,0" ToolTip="Clear CN criteria" Style="{StaticResource CommandImageStyle}">
+            <Button.Content>
+                <Image Source="Resources/DeleteRed.png" Name="Image22" />
+            </Button.Content>
+        </Button>
+        <Label Name="lblIDAccount" Content="ID/Account:" HorizontalAlignment="Left" Margin="5,105,0,0" VerticalAlignment="Top" />
+        <TextBox Name="txtIDAccount" Height="23" HorizontalAlignment="Left" Margin="5,130,0,0" VerticalAlignment="Top" Width="160" />
+        <Button Name="cmdClearIDAccount" Margin="170,130,0,0" ToolTip="Clear ID/Account criteria" Style="{StaticResource CommandImageStyle}">
+            <Button.Content>
+                <Image Source="Resources/DeleteRed.png" Name="Image2" />
+            </Button.Content>
+        </Button>
+        <Label Name="lblNameLast" Content="Last Name:" HorizontalAlignment="Left" Margin="5,155,0,0" VerticalAlignment="Top" />
+        <TextBox Name="txtNameLast" Height="23" HorizontalAlignment="Left" Margin="5,180,0,0" VerticalAlignment="Top" Width="160" />
+        <Button Name="cmdClearNameLast" Margin="170,180,0,0" ToolTip="Clear Last Name criteria" Style="{StaticResource CommandImageStyle}">
+            <Button.Content>
+                <Image Source="Resources/DeleteRed.png" Name="Image3" />
+            </Button.Content>
+        </Button>
+        <Label Name="lblNameFirst" Content="First Name:" HorizontalAlignment="Left" Margin="5,205,0,0" VerticalAlignment="Top" />
+        <TextBox Name="txtNameFirst" Height="23" HorizontalAlignment="Left" Margin="5,230,0,0" VerticalAlignment="Top" Width="160" />
+        <Button Name="cmdClearNameFirst" Margin="170,230,0,0" ToolTip="Clear First Name criteria" Style="{StaticResource CommandImageStyle}">
+            <Button.Content>
+                <Image Source="Resources/DeleteRed.png" Name="Image4" />
+            </Button.Content>
+        </Button>
+        <Label Name="lblSwipeScanDate" Content="Scan Date:" HorizontalAlignment="Left" Margin="5,255,0,0" VerticalAlignment="Top" />
+        <DatePicker Name="DateSwipeScanDate" Height="25" HorizontalAlignment="Left" Margin="5,280,0,0" VerticalAlignment="Top" Width="160" />
+        <Button Name="cmdClearSwipeScanDate" Margin="170,280,0,0" ToolTip="Clear Scan Date criteria" Style="{StaticResource CommandImageStyle}">
+            <Button.Content>
+                <Image Source="Resources/DeleteRed.png" Name="Image5" />
+            </Button.Content>
+        </Button>
+        <Label Name="lblStation" Content="Station:" HorizontalAlignment="Left" Margin="5,305,0,0" VerticalAlignment="Top" />
+        <ComboBox Name="cboStations" Text="Select a Station" HorizontalAlignment="Left" Margin="5,330,0,0" VerticalAlignment="Top"  IsReadOnly="True" IsEditable="True" Width="160" />
+        <Button Name="cmdClearcboStation" Margin="170,330,0,0" ToolTip="Clear Station criteria" Style="{StaticResource CommandImageStyle}">
+            <Button.Content>
+                <Image Source="Resources/DeleteRed.png" Name="Image6" />
+            </Button.Content>
+        </Button>
+        <Label Name="lblUser" Content="User:" HorizontalAlignment="Left" Margin="5,355,0,0" VerticalAlignment="Top" />
+        <ComboBox Name="cboUsers" Text="Select a User" HorizontalAlignment="Left" Margin="5,380,0,0" VerticalAlignment="Top" Width="160" IsReadOnly="True" IsEditable="True" />
+        <Button Name="cmdClearcboUser" Margin="170,380,0,0" ToolTip="Clear User criteria" Style="{StaticResource CommandImageStyle}">
+            <Button.Content>
+                <Image Source="Resources/DeleteRed.png" Name="Image7" />
+            </Button.Content>
+        </Button>
+        <Button Name="cmdNewAlert" Margin="5,425,0,0" Style="{StaticResource cmdImageButton}" Width="160">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/add-icon.png" />
+                    <Label Content="New Alert" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <Button Name="cmdSearch" Margin="5,470,0,0" Style="{StaticResource cmdImageButton}" Width="160">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/Magnifier2.png" />
+                    <Label Content="Search" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <Button Name="cmdClose" Content="Close" HorizontalAlignment="Left" Margin="5,515,0,0" VerticalAlignment="Top" Width="160" />
+    </Grid>
+</Window>

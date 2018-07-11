@@ -1,0 +1,31 @@
+GoDaddy 11/30/2013
+Your Login Name is: 33129982
+PW   FCsIVs415AD
+
+OneDrive
+admin@trafficed.net
+D1v3r10n
+
+GoDaddy Email
+info@trafficed.net
+D1v3r10n
+
+info@ivs-live.net
+D1v3r10n
+
+info@dsreferrals.net
+D1v3r10n
+
+Incoming server (POP3):
+
+pop.secureserver.net  110, 995 (SSL)  
+Outgoing server (SMTP):
+
+smtpout.secureserver.net  80, 3535, 25, 465 (SSL)  
+
+
+
+GOTOASSIST
+
+info@financialcrimes.net
+Snare2015

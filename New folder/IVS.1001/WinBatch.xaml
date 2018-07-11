@@ -1,0 +1,12 @@
+﻿<Window x:Class="WinBatch"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="Batch Processing" Height="170" Width="479">
+    <Grid>
+        <Button Content="Start" Height="23" HorizontalAlignment="Left" Margin="20,12,0,0" Name="cmdBatchStart" VerticalAlignment="Top" Width="75" />
+        <Label Name="lblStatusCTS" Content="" Margin="10,65,0,0" Style="{StaticResource lblStatus}" Width="434" />
+        <ProgressBar Name="ProgressBarCTS" Height="15" HorizontalAlignment="Left" Margin="10,95,0,0" VerticalAlignment="Top" Width="434"/>
+        <TextBox Height="23" HorizontalAlignment="Left" Margin="324,13,0,0" Name="txtBatchID" VerticalAlignment="Top" Width="120" />
+        <Label Content="Batch ID:" Height="28" HorizontalAlignment="Left" Margin="272,11,0,0" Name="lblBatchID" VerticalAlignment="Top" />
+    </Grid>
+</Window>

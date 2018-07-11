@@ -1,0 +1,213 @@
+﻿<Window x:Class="WinAdmin"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Style="{StaticResource WinAdmin}">
+    <Grid>
+        <Image Style="{StaticResource ImageIVSHeader}"/>
+        <TabControl Height="330" HorizontalAlignment="Left" Margin="8,50,0,0" Name="TabControl1" VerticalAlignment="Top" Width="436">
+            <TabItem Header="Client" Name="TabClient">
+                <Grid>
+                    <Label Name="lblClientLocation" Content="Location Name:" Margin="0,10,0,0" Style="{StaticResource label}"/>
+                    <ComboBox Name="cboClientLocation" Margin="130,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="281" />
+                    <Label Name="lblClientStation" Content="Station Name:" Margin="0,40,0,0" Style="{StaticResource label}"/>
+                    <TextBox Name="txtClientStation" Margin="130,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="281" MaxLength="35" />
+                    <Label Name="lblClientPhone" Content="Station Phone:" Margin="0,70,0,0" Style="{StaticResource label}"/>
+                    <TextBox Name="txtClientPhone" Margin="130,70,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="281" MaxLength="20" />
+                    <Label Name="lblClientEmail" Content="Location Email:" Margin="0,100,0,0" Style="{StaticResource label}"/>
+                    <TextBox Name="txtClientEmail" Margin="130,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="281" MaxLength="35" />
+                    <CheckBox Name="cbClientSkipLogon" Content="Skip logon screen" Margin="130,160,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <Label Name="lblClientDefaultUser" Content="Default User:" Margin="0,130,0,0" Style="{StaticResource label}"/>
+                    <ComboBox Name="cboClientDefaultUser" Margin="130,130,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="281" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Options" Name="TabOptions">
+                <Grid>
+                    <Label Name="lblViewingTime" Content="Viewing time before screen clear:" Margin="0,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                    <TextBox Name="txtViewingTime" Margin="240,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="44" MaxLength="4" />
+                    <CheckBox Name="cbDisableDBSave" Content="Disable ALL scan saves in database" Margin="25,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <CheckBox Name="cbDisableCCSave" Content="Disable CC scan save in database" Margin="25,60,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <Label Name="lblCCDigits" Content="Number of CC digits to show:" Margin="0,85,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <TextBox Name="txtCCDigits" Margin="240,85,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="44" MaxLength="2" />
+                    <CheckBox Name="cbAgeHighlight" Content="Enable Age Highlight" Margin="25,120,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <CheckBox Name="cbAgePopup" Content="Enable Age Popup" Margin="25,140,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <Label Name="lblAge" Content="Highlight Age:" Margin="0,170,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <TextBox Name="txtAge" Margin="240,170,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="44" MaxLength="2" />
+                    <CheckBox Name="cbImageSave" Content="Save Images" Margin="25,205,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <Button Name="cmdBrowseSourceFolder" Margin="10,235,0,0" Content="Image save location:" Style="{StaticResource CommandLinkStyle}" />
+                    <TextBox Name="txtImageLocation" Margin="6,265,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="414" MaxLength="255" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Locations" Name="TabLocations">
+                <Grid>
+                    <Grid.Resources>
+                        <DataTemplate x:Key="CanDeleteLocationColumnTemplate" >
+                            <ContentControl x:Name="MyContentControl" Content="{Binding}" />
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding CanDelete}" Value="TRUE">
+                                    <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+                                                <Button Click="dgLocations_CmdDelete_Click">Delete</Button>
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding CanDelete}" Value="FALSE" >
+                                    <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </Grid.Resources>
+                    <DataGrid Name="dgLocations" Style="{StaticResource dgLocations}" Margin="-2,0,0,0" >
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Click="dgLocations_CmdEdit_Click">Edit</Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn CellTemplate="{StaticResource CanDeleteLocationColumnTemplate}" />
+                            <DataGridTextColumn Binding="{Binding LocationID}" Visibility="Hidden" />
+                            <DataGridTextColumn Binding="{Binding LocationDescription}" Header="Location" Width="*" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Name="cmdEditLocation" Content="Save" HorizontalAlignment="Left" Margin="6,240,0,0" VerticalAlignment="Top" Width="75" Visibility="Hidden" />
+                    <Button Name="cmdNewLocation" Content="Add" HorizontalAlignment="Left" Margin="6,240,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False"/>
+                    <TextBox Name="txtLocation" Height="23" HorizontalAlignment="Left" Margin="110,240,0,0" VerticalAlignment="Top" Width="313" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Users" Name="TabUsers" Margin="0">
+                <Grid>
+                    <Grid.Resources>
+                        <DataTemplate x:Key="EnableDisableColumnTemplate" >
+                            <ContentControl x:Name="MyContentControl" Content="{Binding}" />
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding ActiveFlag}" Value="TRUE">
+                                    <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+                                                <Button Click="dgUsers_CmdDisable_Click">Disable</Button>
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ActiveFlag}" Value="FALSE" >
+                                    <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+                                                <Button Click="dgUsers_CmdEnable_Click">Enable</Button>
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </Grid.Resources>
+                    <DataGrid Name="dgUsers" Style="{StaticResource dgAdmin}" Width="425" Margin="-2,0,0,0">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Click="dgUsers_CmdView_Click">Edit</Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn CellTemplate="{StaticResource EnableDisableColumnTemplate}" />
+                            <DataGridTextColumn Binding="{Binding UserID}" Visibility="Hidden" />
+                            <DataGridCheckBoxColumn Binding="{Binding ActiveFlag}" Header="Active" />
+                            <DataGridTextColumn Binding="{Binding UserNameFirst}" Header="First Name" />
+                            <DataGridTextColumn Binding="{Binding UserNameLast}" Header="Last Name" />
+                            <DataGridTextColumn Binding="{Binding UserName}" Header="UserName" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Name="cmdNewUser" Content="New User" HorizontalAlignment="Left" Margin="6,260,0,0" VerticalAlignment="Top" Width="75" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Alerts" Name="TabAlerts">
+                <Grid>
+                    <Grid.Resources>
+                        <DataTemplate x:Key="EnableDisableColumnTemplate" >
+                            <ContentControl x:Name="MyContentControl" Content="{Binding}" />
+                            <DataTemplate.Triggers>
+                                <DataTrigger Binding="{Binding ActiveFlag}" Value="TRUE">
+                                    <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+                                                <Button Click="dgAlerts_CmdDisable_Click">Disable</Button>
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                                <DataTrigger Binding="{Binding ActiveFlag}" Value="FALSE" >
+                                    <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                                        <Setter.Value>
+                                            <DataTemplate>
+                                                <Button Click="dgAlerts_CmdEnable_Click">Enable</Button>
+                                            </DataTemplate>
+                                        </Setter.Value>
+                                    </Setter>
+                                </DataTrigger>
+                            </DataTemplate.Triggers>
+                        </DataTemplate>
+                    </Grid.Resources>
+                    <DataGrid Name="dgAlerts" Style="{StaticResource dgAdmin}" Width="425" Margin="-2,0,0,0">
+                        <DataGrid.Columns>
+                            <DataGridTemplateColumn>
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Button Click="dgAlerts_CmdView_Click">Edit</Button>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                            <DataGridTemplateColumn CellTemplate="{StaticResource EnableDisableColumnTemplate}" />
+                            <DataGridTextColumn Binding="{Binding AlertID}" Visibility="Hidden" />
+                            <DataGridTextColumn Binding="{Binding IDNumber}" Header="ID / Account" />
+                            <DataGridTextColumn Binding="{Binding NameLast}" Header="Last Name" />
+                            <DataGridTextColumn Binding="{Binding DateofBirth}" Header="DOB" />
+                            <DataGridCheckBoxColumn Binding="{Binding ActiveFlag}" Header="Active" />
+                            <DataGridTextColumn Binding="{Binding UpdateTS,StringFormat={}\{0:MM/dd/yyyy\}}" Header="Date" />
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    <Button Name="cmdNewAlert" Content="New Alert" HorizontalAlignment="Left" Margin="6,260,0,0" VerticalAlignment="Top" Width="75" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="Devices" Name="TabDevices">
+                <Grid>
+                    <Label Content="Input Device:" HorizontalAlignment="Left" Margin="0,10,0,0" Name="lblInputDevice" VerticalAlignment="Top" />
+                    <ComboBox Name="cboDevices" Margin="200,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" />
+                    <Label Name="lblDevicePort" Content="Device Port:" Margin="0,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <ComboBox Name="cboDevicePort" Margin="200,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" />
+                    <Button Name="cmdDeviceVerify" Content="Verify" Margin="20,74,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" />
+                    <Label Name="lblDeviceVerifyStatus" Content="lblDeviceVerifyStatus" Margin="5,102,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="428" />
+                    <Label Name="LabelDeviceModelNumber" Content="Model Number:" Margin="0,132,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <Label Name="lblDeviceModelNumber" Content="lblDeviceModelNumber" Margin="200,132,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <Label Name="LabelDeviceSerialNumber" Content="Serial Number:" Margin="0,162,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <Label Name="lblDeviceSerialNumber" Content="lblDeviceSerialNumber" Margin="200,162,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <Label Name="LabelDeviceApplicationRev" Content="Application Revision:" Margin="0,192,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <Label Name="lblDeviceApplicationRev" Content="lblDeviceApplicationRev" Margin="200,192,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <Label Name="LabelDeviceHardwareRev" Content="Hardware Revision:" Margin="0,222,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                    <Label Name="lblDeviceHardwareRev" Content="lblDeviceHardwareRev" Margin="200,222,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+                </Grid>
+            </TabItem>
+            <TabItem Header="About" Name="TabAbout">
+                <Grid>
+                    <Label Name="LabelEdition" Content="Edition:" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top" />
+                    <Label Name="lblEdition" Content="Label" HorizontalAlignment="Left" Margin="200,10,0,0" VerticalAlignment="Top" />
+                    <Label Name="LabelVersion" Content="Version" HorizontalAlignment="Left" Margin="0,40,0,0" VerticalAlignment="Top" />
+                    <Label Name="lblVersion" Content="Label" HorizontalAlignment="Left" Margin="200,40,0,0" VerticalAlignment="Top" />
+                    <Label Name="LabelBuild" Content="Build" HorizontalAlignment="Left" Margin="0,70,0,0" VerticalAlignment="Top" />
+                    <Label Name="lblBuild" Content="Label" HorizontalAlignment="Left" Margin="200,70,0,0" VerticalAlignment="Top" />
+                </Grid>
+            </TabItem>
+        </TabControl>
+        <Button Name="cmdSave" Content="Save" Margin="235,395,0,0" Style="{StaticResource cmdButton}"/>
+        <Button Name="cmdCancel" Content="Close" Margin="335,395,0,0" Style="{StaticResource cmdButton}" />
+    </Grid>
+</Window>

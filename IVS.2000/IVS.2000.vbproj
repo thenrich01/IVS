@@ -1,0 +1,301 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{6FC4A790-87C1-460B-995A-BF153D5E3F59}</ProjectGuid>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{F184B08F-C81C-45F6-A57F-5ABD9991F28F}</ProjectTypeGuids>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>IVS</RootNamespace>
+    <AssemblyName>IVS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <MyType>Custom</MyType>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <IncrementalBuild>true</IncrementalBuild>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>None</DebugType>
+    <DebugSymbols>false</DebugSymbols>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <IncrementalBuild>false</IncrementalBuild>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>
+    </DocumentationFile>
+    <NoWarn>41999,42016,42017,42018,42019,42020,42021,42022,42032,42036,42314</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\snare.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="IDecode, Version=1.0.0.0, Culture=neutral">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\IVS.Data\IDecode.dll</HintPath>
+    </Reference>
+    <Reference Include="LsApiClass">
+      <HintPath>..\IVS.CTS\LsApiClass.dll</HintPath>
+    </Reference>
+    <Reference Include="ReachFramework" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Printing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="Application.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="Application.xaml.vb">
+      <DependentUpon>Application.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="WinAdmin.xaml.vb">
+      <DependentUpon>WinAdmin.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinAlert.xaml.vb">
+      <DependentUpon>WinAlert.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinBatch.xaml.vb">
+      <DependentUpon>WinBatch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinCompare.xaml.vb">
+      <DependentUpon>WinCompare.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinCTS.xaml.vb">
+      <DependentUpon>WinCTS.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinESeek.xaml.vb">
+      <DependentUpon>WinESeek.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinMagEntry.xaml.vb">
+      <DependentUpon>WinMagEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinMagTek.xaml.vb">
+      <DependentUpon>WinMagTek.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinMain.xaml.vb">
+      <DependentUpon>WinMain.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinManEntry.xaml.vb">
+      <DependentUpon>WinManEntry.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinRawData.xaml.vb">
+      <DependentUpon>WinRawData.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinSearch.xaml.vb">
+      <DependentUpon>WinSearch.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinUnderAge.xaml.vb">
+      <DependentUpon>WinUnderAge.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinUser.xaml.vb">
+      <DependentUpon>WinUser.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="WinView.xaml.vb">
+      <DependentUpon>WinView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows" />
+    <Import Include="System.Windows.Controls" />
+    <Import Include="System.Windows.Data" />
+    <Import Include="System.Windows.Documents" />
+    <Import Include="System.Windows.Input" />
+    <Import Include="System.Windows.Shapes" />
+    <Import Include="System.Windows.Media" />
+    <Import Include="System.Windows.Media.Imaging" />
+    <Import Include="System.Windows.Navigation" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="My Project\AssemblyInfo.vb">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="My Project\MyExtensions\MyWpfExtension.vb">
+      <VBMyExtensionTemplateID>Microsoft.VisualBasic.WPF.MyExtension</VBMyExtensionTemplateID>
+      <VBMyExtensionTemplateVersion>1.0.0.0</VBMyExtensionTemplateVersion>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <AppDesigner Include="My Project\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\action_print.gif" />
+    <Resource Include="Resources\add-icon.png" />
+    <Resource Include="Resources\binary-icone-7467-128.png" />
+    <Resource Include="Resources\Binoculars.png" />
+    <Resource Include="Resources\Cancel__Red.png" />
+    <Resource Include="Resources\Close_Box_Red.png" />
+    <Resource Include="Resources\DeleteRed.png" />
+    <Resource Include="Resources\eraser.png" />
+    <Resource Include="Resources\Magnifier2.png" />
+    <Resource Include="Resources\MagnifyingGlass.png" />
+    <Resource Include="Resources\MoveBackBlue.png" />
+    <Resource Include="Resources\MoveForwardBlue.png" />
+    <Resource Include="Resources\MoveLastBlue.png" />
+    <Resource Include="Resources\NoImage.jpg" />
+    <Resource Include="Resources\Pencil3.png" />
+    <Resource Include="Resources\print.gif" />
+    <Resource Include="Resources\required.gif" />
+    <Resource Include="Resources\save.gif" />
+    <Resource Include="Resources\snare.ico" />
+    <Resource Include="Resources\User1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\IVSLogoForApp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\IVS.AppLog\IVS.AppLog.vbproj">
+      <Project>{E7AF354B-1E44-4150-B634-8FD13368462B}</Project>
+      <Name>IVS.AppLog</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IVS.CTS\IVS.CTS.vbproj">
+      <Project>{52A03C4E-C1E8-4909-9F83-C5EE08272199}</Project>
+      <Name>IVS.CTS</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IVS.Data\IVS.Data.vbproj">
+      <Project>{59D2EC5F-0373-4607-96C3-E4C90EA8837A}</Project>
+      <Name>IVS.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IVS.ESeek\IVS.ESeek.vbproj">
+      <Project>{DEBB2BBF-09EC-4BD0-9EA5-CEBDFC47A9AD}</Project>
+      <Name>IVS.ESeek</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IVS.MagTek\IVS.MagTek.vbproj">
+      <Project>{4490FB62-C7E9-4602-A05A-AD96D53A2C0A}</Project>
+      <Name>IVS.MagTek</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Style.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinAdmin.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinAlert.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinBatch.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinCompare.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinCTS.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinESeek.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinMagEntry.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinMagTek.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinMain.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinManEntry.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinRawData.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinSearch.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinUnderAge.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinUser.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="WinView.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="%40Description.txt" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+</Project>

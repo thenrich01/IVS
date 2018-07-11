@@ -1,0 +1,3 @@
+﻿Version		Date		Updates
+4.2			02/07/2014	Scan windows displayed Height in Eye Color field
+4.3			10/13/2014	Added support for Epson TMS9000

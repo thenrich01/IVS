@@ -1,0 +1,8 @@
+﻿<Window x:Class="WinView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Style="{StaticResource WinView}">
+    <Grid>
+        <Image Name="imgScannedDocument" Margin="10,10,10,10" Stretch="Fill" />
+    </Grid>
+</Window>

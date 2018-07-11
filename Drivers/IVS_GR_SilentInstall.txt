@@ -1,0 +1,1 @@
+F:\>setup_ivs_2001.grandrapids.msi /passive TARGETDIR="C:\Program Files\Identification Verification Systems\IVS.2001.GrandRapids" BTNDEVICE=1

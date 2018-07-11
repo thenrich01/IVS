@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/IVS.Data.GrandRapids" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/IVS.Data.GrandRapids" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="ArrayOfClients">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Clients" nillable="true" type="tns:Clients" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfClients" nillable="true" type="tns:ArrayOfClients" />
+  <xs:complexType name="Clients">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Station" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Clients" nillable="true" type="tns:Clients" />
+  <xs:complexType name="ArrayOfLocations">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="Locations" nillable="true" type="tns:Locations" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfLocations" nillable="true" type="tns:ArrayOfLocations" />
+  <xs:complexType name="Locations">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="Locations" nillable="true" type="tns:Locations" />
+  <xs:complexType name="ClientSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Age" type="xs:int" />
+      <xs:element minOccurs="0" name="AgeHighlight" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AgePopup" type="xs:boolean" />
+      <xs:element minOccurs="0" name="CCDigits" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="ComPort" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DefaultUser" type="xs:int" />
+      <xs:element minOccurs="0" name="DeviceID" type="xs:int" />
+      <xs:element minOccurs="0" name="DeviceType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisableCCSave" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DisableDBSave" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DisplayAdmin" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDecodeCardTypes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDecodeLicense" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDecodeTrackFormat" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ImageLocation" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ImageSave" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="LogRetention" type="xs:int" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SkipLogon" type="xs:boolean" />
+      <xs:element minOccurs="0" name="SleepMilliSeconds" type="xs:int" />
+      <xs:element minOccurs="0" name="Station" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ViewingTime" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ClientSettings" nillable="true" type="tns:ClientSettings" />
+  <xs:complexType name="DeviceInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="ComPort" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DeviceID" type="xs:int" />
+      <xs:element minOccurs="0" name="DeviceType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirmwareDate" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="FirmwareRev" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="HardwareRev" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ModelNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SerialNo" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdateTS" type="xs:dateTime" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DeviceInfo" nillable="true" type="tns:DeviceInfo" />
+  <xs:complexType name="ArrayOfUserDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="UserDetail" nillable="true" type="tns:UserDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfUserDetail" nillable="true" type="tns:ArrayOfUserDetail" />
+  <xs:complexType name="UserDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActiveFlag" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AdminFlag" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AlertFlag" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SearchFlag" type="xs:boolean" />
+      <xs:element minOccurs="0" name="UpdateTS" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserEmail" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserNameFirst" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserNameLast" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserPhone" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="UserDetail" nillable="true" type="tns:UserDetail" />
+  <xs:complexType name="ArrayOfAlertDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="AlertDetail" nillable="true" type="tns:AlertDetail" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfAlertDetail" nillable="true" type="tns:ArrayOfAlertDetail" />
+  <xs:complexType name="AlertDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="ActiveFlag" type="xs:boolean" />
+      <xs:element minOccurs="0" name="AlertContactName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AlertContactNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AlertID" type="xs:int" />
+      <xs:element minOccurs="0" name="AlertNotes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AlertType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MatchID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="MatchLast" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameFirst" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameLast" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UpdateTS" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="AlertDetail" nillable="true" type="tns:AlertDetail" />
+  <xs:complexType name="SwipeScanInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="BatchID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CCDigits" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="DisableCCSave" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DisableDBSave" type="xs:boolean" />
+      <xs:element minOccurs="0" name="IDChecker" nillable="true" type="xs:anyType" />
+      <xs:element minOccurs="0" name="ScanType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SwipeScanRawData" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SwipeScanInfo" nillable="true" type="tns:SwipeScanInfo" />
+  <xs:complexType name="SwipeScanDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressStreet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressZip" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Age" type="xs:int" />
+      <xs:element minOccurs="0" name="CCDigits" type="xs:int" />
+      <xs:element minOccurs="0" name="CCIssuer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CardType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CaseID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CheckNumber" type="xs:int" />
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="DataSource" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateOfExpiration" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateOfIssue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DisableCCSave" type="xs:boolean" />
+      <xs:element minOccurs="0" name="DisableDBSave" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Eyes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hair" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Height" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDAccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameFirst" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameLast" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameMiddle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sex" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SwipeRawData" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SwipeScanID" type="xs:int" />
+      <xs:element minOccurs="0" name="UpdateTS" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserID" type="xs:int" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Weight" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SwipeScanDetail" nillable="true" type="tns:SwipeScanDetail" />
+  <xs:complexType name="ArrayOfSwipeScanHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SwipeScanHistory" nillable="true" type="tns:SwipeScanHistory" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSwipeScanHistory" nillable="true" type="tns:ArrayOfSwipeScanHistory" />
+  <xs:complexType name="SwipeScanHistory">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Station" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SwipeScanID" type="xs:int" />
+      <xs:element minOccurs="0" name="SwipeScanTS" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SwipeScanHistory" nillable="true" type="tns:SwipeScanHistory" />
+  <xs:complexType name="SwipeScanNavigateInfo">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="SwipeScanID" type="xs:int" />
+      <xs:element minOccurs="0" name="SwipeScanTS" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SwipeScanType" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SwipeScanNavigateInfo" nillable="true" type="tns:SwipeScanNavigateInfo" />
+  <xs:complexType name="ArrayOfSwipeScanSearch">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="SwipeScanSearch" nillable="true" type="tns:SwipeScanSearch" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfSwipeScanSearch" nillable="true" type="tns:ArrayOfSwipeScanSearch" />
+  <xs:complexType name="SwipeScanSearch">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CaseID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDAccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ImageAvailable" type="xs:boolean" />
+      <xs:element minOccurs="0" name="Location" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameFirst" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameLast" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Station" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SwipeScanID" type="xs:int" />
+      <xs:element minOccurs="0" name="SwipeScanTS" type="xs:dateTime" />
+      <xs:element minOccurs="0" name="SwipeScanType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="UserName" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="SwipeScanSearch" nillable="true" type="tns:SwipeScanSearch" />
+  <xs:complexType name="ArrayOfTEPViolations">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TEPViolations" nillable="true" type="tns:TEPViolations" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTEPViolations" nillable="true" type="tns:ArrayOfTEPViolations" />
+  <xs:complexType name="TEPViolations">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Offense" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Statute" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="StatuteOffense" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ViolationID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TEPViolations" nillable="true" type="tns:TEPViolations" />
+  <xs:complexType name="TEPClientSettings">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CitationPrefix" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ProgramID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TEPClientSettings" nillable="true" type="tns:TEPClientSettings" />
+  <xs:complexType name="TEPSwipeScanDetail">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="CitationID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ClientID" type="xs:int" />
+      <xs:element minOccurs="0" name="Disposition" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="ICRID" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SwipeScanID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TEPSwipeScanDetail" nillable="true" type="tns:TEPSwipeScanDetail" />
+  <xs:complexType name="TEPSwipeScanViolations">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="Offense" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sequence" type="xs:int" />
+      <xs:element minOccurs="0" name="Statute" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="SwipeScanID" type="xs:int" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="TEPSwipeScanViolations" nillable="true" type="tns:TEPSwipeScanViolations" />
+  <xs:complexType name="ArrayOfTEPSwipeScanViolations">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="TEPSwipeScanViolations" nillable="true" type="tns:TEPSwipeScanViolations" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfTEPSwipeScanViolations" nillable="true" type="tns:ArrayOfTEPSwipeScanViolations" />
+</xs:schema>

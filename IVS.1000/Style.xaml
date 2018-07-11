@@ -1,0 +1,365 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <Style x:Key="WinMain" TargetType="Window">
+        <Setter Property="Title" Value="IVS" />
+        <Setter Property="Icon" Value="Resources/snare.ico" />
+        <Setter Property="ResizeMode" Value="CanMinimize" />
+        <Setter Property="Height" Value="340" />
+        <Setter Property="Width" Value="450" />
+        <Setter Property="FontFamily" Value="Tahoma" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+    <Style x:Key="WinAdmin" TargetType="Window">
+        <Setter Property="Title" Value="IVS - Administration" />
+        <Setter Property="Icon" Value="Resources/snare.ico" />
+        <Setter Property="ResizeMode" Value="CanMinimize" />
+        <Setter Property="Height" Value="480" />
+        <Setter Property="Width" Value="460" />
+        <Setter Property="FontFamily" Value="Tahoma" />
+        <Setter Property="FontSize" Value="15" />
+    </Style>
+    <Style x:Key="WinScanCTS" TargetType="Window">
+        <Setter Property="Title" Value="IVS" />
+        <Setter Property="Icon" Value="Resources/snare.ico" />
+        <Setter Property="ResizeMode" Value="CanMinimize" />
+        <Setter Property="Height" Value="700" />
+        <Setter Property="Width" Value="1000" />
+        <Setter Property="FontFamily" Value="Tahoma" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+    <Style x:Key="WinScanImage" TargetType="Window">
+        <Setter Property="Title" Value="IVS" />
+        <Setter Property="Icon" Value="Resources/snare.ico" />
+        <Setter Property="ResizeMode" Value="CanMinimize" />
+        <Setter Property="Height" Value="700" />
+        <Setter Property="Width" Value="1000" />
+        <Setter Property="FontFamily" Value="Tahoma" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+    <Style x:Key="WinScan" TargetType="Window">
+        <Setter Property="Title" Value="IVS" />
+        <Setter Property="Icon" Value="Resources/snare.ico" />
+        <Setter Property="ResizeMode" Value="CanMinimize" />
+        <Setter Property="Height" Value="650" />
+        <Setter Property="Width" Value="995" />
+        <Setter Property="FontFamily" Value="Tahoma" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+    <Style x:Key="WinUnderAge" TargetType="Window">
+        <Setter Property="Title" Value="IVS" />
+        <Setter Property="Icon" Value="Resources/snare.ico" />
+        <Setter Property="Height" Value="200" />
+        <Setter Property="Width" Value="350" />
+        <Setter Property="FontFamily" Value="Tahoma" />
+        <Setter Property="FontSize" Value="17" />
+        <Setter Property="FontWeight" Value="Bold" />
+    </Style>
+    <Style x:Key="WinView" TargetType="Window">
+        <Setter Property="Title" Value="IVS - Identification Verification Systems" />
+        <Setter Property="Icon" Value="Resources/snare.ico" />
+        <Setter Property="Height" Value="500" />
+        <Setter Property="Width" Value="764" />
+    </Style>
+    <Style x:Key="WinCompare" TargetType="Window">
+        <Setter Property="Title" Value="IVS - Identification Verification Systems - Compare Last 2 Records" />
+        <Setter Property="Icon" Value="Resources/snare.ico" />
+        <Setter Property="ResizeMode" Value="NoResize" />
+        <Setter Property="Height" Value="550" />
+        <Setter Property="Width" Value="800" />
+        <Setter Property="FontFamily" Value="Tahoma" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+    <Style x:Key="WinMagEntry" TargetType="Window">
+        <Setter Property="Title" Value="IVS - Identification Verification Systems - Mag Swipe Entry" />
+        <Setter Property="Icon" Value="Resources/snare.ico" />
+        <Setter Property="ResizeMode" Value="NoResize" />
+        <Setter Property="Height" Value="100" />
+        <Setter Property="Width" Value="460" />
+        <Setter Property="FontFamily" Value="Tahoma" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+    <Style x:Key="WinTextInput" TargetType="Window">
+        <Setter Property="Title" Value="IVS - Identification Verification Systems - ID Entry" />
+        <Setter Property="Icon" Value="Resources/snare.ico" />
+        <Setter Property="ResizeMode" Value="NoResize" />
+        <Setter Property="Height" Value="100" />
+        <Setter Property="Width" Value="460" />
+        <Setter Property="FontFamily" Value="Tahoma" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+    <Style x:Key="WinManEntry" TargetType="Window">
+        <Setter Property="Title" Value="IVS - Identification Verification Systems - Manual Entry" />
+        <Setter Property="Icon" Value="Resources/snare.ico" />
+        <Setter Property="ResizeMode" Value="NoResize" />
+        <Setter Property="Height" Value="580" />
+        <Setter Property="Width" Value="500" />
+        <Setter Property="FontFamily" Value="Tahoma" />
+        <Setter Property="FontSize" Value="16" />
+    </Style>
+    <Style x:Key="WinAlert" TargetType="Window">
+        <Setter Property="Title" Value="IVS - Identification Verification Systems - Alert Detail" />
+        <Setter Property="Icon" Value="Resources/snare.ico" />
+        <Setter Property="ResizeMode" Value="NoResize" />
+        <Setter Property="Height" Value="470" />
+        <Setter Property="Width" Value="460" />
+        <Setter Property="FontFamily" Value="Tahoma" />
+        <Setter Property="FontSize" Value="15" />
+    </Style>
+    <Style x:Key="WinUser" TargetType="Window">
+        <Setter Property="Title" Value="IVS - Identification Verification Systems - User Detail" />
+        <Setter Property="Icon" Value="Resources/snare.ico" />
+        <Setter Property="ResizeMode" Value="NoResize" />
+        <Setter Property="Height" Value="360" />
+        <Setter Property="Width" Value="460" />
+        <Setter Property="FontFamily" Value="Tahoma" />
+        <Setter Property="FontSize" Value="15" />
+    </Style>
+    <Style x:Key="WinSearch" TargetType="Window">
+        <Setter Property="Title" Value="IVS - Identification Verification Systems - Search" />
+        <Setter Property="Icon" Value="Resources/snare.ico" />
+        <Setter Property="ResizeMode" Value="CanMinimize" />
+        <Setter Property="Height" Value="590" />
+        <Setter Property="Width" Value="900" />
+        <Setter Property="FontFamily" Value="Tahoma" />
+        <Setter Property="FontSize" Value="15" />
+    </Style>
+    <Style x:Key="WinRawData" TargetType="Window">
+        <Setter Property="Title" Value="IVS - Identification Verification Systems - View Scan Raw Data" />
+        <Setter Property="Icon" Value="Resources/snare.ico" />
+        <Setter Property="ResizeMode" Value="NoResize" />
+        <Setter Property="Height" Value="175" />
+        <Setter Property="Width" Value="900" />
+        <Setter Property="FontFamily" Value="Tahoma" />
+        <Setter Property="FontSize" Value="14" />
+    </Style>
+    <Style x:Key="WinReportUCCExpired" TargetType="Window">
+        <Setter Property="Title" Value="UCC - Expiring Scans" />
+        <Setter Property="Icon" Value="Resources/snare.ico" />
+        <Setter Property="Height" Value="300" />
+        <Setter Property="Width" Value="800" />
+        <Setter Property="FontFamily" Value="Tahoma" />
+        <Setter Property="FontSize" Value="15" />
+    </Style>
+    <Style x:Key="ImageIVSHeader" TargetType="Image">
+        <Setter Property="Height" Value="42" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Source" Value="Resources/IVSLogoForApp.png" />
+    </Style>
+    <Style x:Key="ImageRequired" TargetType="Image">
+        <Setter Property="Width" Value="18" />
+        <Setter Property="Height" Value="14" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Stretch" Value="None" />
+        <Setter Property="Source" Value="Resources/required.gif" />
+    </Style>
+    <Style x:Key="RecRecordNav" TargetType="Rectangle">
+        <Setter Property="Height" Value="43" />
+        <Setter Property="Width" Value="1000" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Fill" Value="#FF035596" />
+    </Style>
+    <Style x:Key="cmdNavButton" TargetType="Button">
+        <Setter Property="Height" Value="38" />
+        <Setter Property="Width" Value="38" />
+        <Setter Property="Padding" Value="0" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+    <Style x:Key="cmdNavButtonImage" TargetType="Image">
+        <Setter Property="Height" Value="37" />
+        <Setter Property="Width" Value="37" />
+    </Style>
+    <Style x:Key="lblRecordNav" TargetType="Label">
+        <Setter Property="Height" Value="29" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="Foreground" Value="White" />
+    </Style>
+    <Style x:Key="lblIDAccountDetail" TargetType="Label">
+        <Setter Property="Height" Value="29" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+    </Style>
+    <Style x:Key="lblIDAccountDetailLeft" TargetType="Label">
+        <Setter Property="Height" Value="29" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Right" />
+    </Style>
+    <Style x:Key="dgAdmin" TargetType="DataGrid">
+        <Setter Property="Height" Value="230" />
+        <Setter Property="Width" Value="440" />
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="AutoGenerateColumns" Value="False" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+    <Style x:Key="dgSearch" TargetType="DataGrid">
+        <Setter Property="Height" Value="506" />
+        <Setter Property="Width" Value="678" />
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="AutoGenerateColumns" Value="False" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+    <Style x:Key="dgESeek" TargetType="DataGrid">
+        <Setter Property="Height" Value="175" />
+        <Setter Property="Width" Value="425" />
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="AutoGenerateColumns" Value="False" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+    <Style x:Key="dgCTS" TargetType="DataGrid">
+        <Setter Property="Height" Value="175" />
+        <Setter Property="Width" Value="425" />
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="AutoGenerateColumns" Value="False" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+    <Style x:Key="cmdImageButton2" TargetType="Button">
+        <Setter Property="Height" Value="35" />
+        <Setter Property="Width" Value="200" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+    <Style x:Key="cmdImageButton" TargetType="Button">
+        <Setter Property="Height" Value="35" />
+        <Setter Property="Width" Value="110" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+    <Style x:Key="cmdButton" TargetType="Button">
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Width" Value="75" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+    <Style x:Key="cmdMain" TargetType="Button">
+        <Setter Property="Height" Value="30" />
+        <Setter Property="Width" Value="140" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+    <Style x:Key="cmdCTS" TargetType="Button">
+        <Setter Property="Height" Value="25" />
+        <Setter Property="Width" Value="85" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+    <Style x:Key="cmdViewReverse" TargetType="Button">
+        <Setter Property="Height" Value="180" />
+        <Setter Property="Width" Value="290" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+    </Style>
+    <Style x:Key="label" TargetType="Label">
+        <Setter Property="Height" Value="25" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+    </Style>
+    <Style x:Key="TextBox" TargetType="TextBox">
+        <Setter Property="Height" Value="23" />
+        <Setter Property="Width" Value="260" />
+        <Setter Property="MaxLength" Value="35" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+    </Style>
+    <Style x:Key="CheckBox" TargetType="CheckBox">
+        <Setter Property="Width" Value="150" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+    <Style x:Key="lblSmall" TargetType="Label">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="FontSize" Value="10" />
+    </Style>
+    <Style x:Key="lblMedium" TargetType="Label">
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="FontSize" Value="15" />
+    </Style>
+    <Style x:Key="lblSmall2" TargetType="Label">
+        <Setter Property="Width" Value="315" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Right" />
+        <Setter Property="FontSize" Value="10" />
+    </Style>
+    <Style x:Key="lblStatus" TargetType="Label">
+        <Setter Property="Width" Value="550" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="FontSize" Value="10" />
+    </Style>
+    <Style x:Key="ExpanderRD" TargetType="Expander">
+        <Setter Property="Width" Value="828" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+        <Setter Property="FontSize" Value="10" />
+    </Style>
+    <Style x:Key="txtAlertNotes" TargetType="TextBox">
+        <Setter Property="Height" Value="120" />
+        <Setter Property="Width" Value="385" />
+        <Setter Property="MaxLength" Value="255" />
+        <Setter Property="TextWrapping" Value="Wrap" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="HorizontalContentAlignment" Value="Left" />
+    </Style>
+    <Style x:Key="dgLocations" TargetType="DataGrid">
+        <Setter Property="Height" Value="230" />
+        <Setter Property="Width" Value="425" />
+        <Setter Property="IsReadOnly" Value="True" />
+        <Setter Property="FontSize" Value="12" />
+        <Setter Property="AutoGenerateColumns" Value="False" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+    <ControlTemplate x:Key="TemplateLinkStyle" TargetType="Button">
+        <TextBlock TextDecorations="Underline">
+                    <ContentPresenter />
+        </TextBlock>
+    </ControlTemplate>
+    <Style TargetType="Button" x:Key="CommandLinkStyle">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Foreground" Value="Red" />
+            </Trigger>
+        </Style.Triggers>
+        <Setter Property="Foreground" Value="Blue" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Height" Value="24" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+        <Setter Property="Control.Template" Value="{StaticResource TemplateLinkStyle}" />
+    </Style>
+    <Style TargetType="Button" x:Key="CommandImageStyle">
+        <Style.Triggers>
+            <Trigger Property="IsMouseOver" Value="true">
+                <Setter Property="Foreground" Value="Red" />
+            </Trigger>
+        </Style.Triggers>
+        <Setter Property="Foreground" Value="Blue" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Height" Value="24" />
+        <Setter Property="HorizontalAlignment" Value="Left" />
+        <Setter Property="VerticalAlignment" Value="Top" />
+    </Style>
+</ResourceDictionary>

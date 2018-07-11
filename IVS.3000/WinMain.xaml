@@ -1,0 +1,21 @@
+﻿<Window x:Class="WinMain"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Style="{StaticResource WinMain}">
+    <Grid>
+        <Image Name="ImageHeader" Style="{StaticResource ImageIVSHeader}" />
+        <Button Name="cmdAdmin" Content="Administration" Margin="10,80,0,0" Style="{StaticResource cmdMain}" />
+        <Button Name="cmdSearch" Content="Search" Margin="10,130,0,0" Style="{StaticResource cmdMain}"/>
+        <Button  Name="cmdScan" Content="Scan" Margin="10,180,0,0" Style="{StaticResource cmdMain}"/>
+        <Rectangle Name="recLogon" Height="132" HorizontalAlignment="Left" Margin="180,80,0,0" Stroke="Black" VerticalAlignment="Top" Width="230" />
+        <Label Name="lblUserName" Content="UserName:" Margin="185,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <TextBox Name="txtUserName" Margin="280,90,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" />
+        <Label Name="lblPassword" Content="Password:" Margin="185,130,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <PasswordBox Name="txtPassword" Margin="280,130,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" />
+        <Button Name="cmdLogon" Content="Logon" Margin="230,170,0,0" Style="{StaticResource cmdMain}"/>
+        <Button Name="cmdEditUserAccount" Content="Edit User Account" Margin="10,230,0,0" Style="{StaticResource cmdMain}"/>
+        <Label Name="lblStatus" Content="lblStatus" Margin="10,270,0,0" Style="{StaticResource lblStatus}" Width="400" />
+        <Button Name="cmdCancel" Content="Close" Margin="270,230,0,0" Style="{StaticResource cmdMain}"/>
+    </Grid>
+</Window>
+

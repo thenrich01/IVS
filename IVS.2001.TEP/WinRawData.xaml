@@ -1,0 +1,8 @@
+﻿<Window x:Class="WinRawData"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Style="{StaticResource WinRawData}">
+    <Grid>
+        <TextBox Height="115" HorizontalAlignment="Left" Margin="10,10,0,0" Name="TextBox1" VerticalAlignment="Top" Width="855" />
+    </Grid>
+</Window>

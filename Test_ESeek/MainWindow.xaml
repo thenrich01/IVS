@@ -1,0 +1,16 @@
+﻿<Window x:Class="MainWindow"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Rectangle Height="126" HorizontalAlignment="Left" Margin="14,12,0,0" Name="Rectangle1" Stroke="Black" VerticalAlignment="Top" Width="215" />
+        <Rectangle Height="126" HorizontalAlignment="Left" Margin="268,12,0,0" Name="Rectangle2" Stroke="Black" VerticalAlignment="Top" Width="215" />
+        <ComboBox HorizontalAlignment="Left" Margin="54,33,0,0" Name="cboDevices1" VerticalAlignment="Top" Width="120" />
+        <ComboBox HorizontalAlignment="Left" Margin="54,70,0,0" Name="cboDevicePort1" VerticalAlignment="Top" Width="120" />
+        <ComboBox HorizontalAlignment="Left" Margin="316,33,0,0" Name="cboDevices2" VerticalAlignment="Top" Width="120" />
+        <ComboBox HorizontalAlignment="Left" Margin="316,70,0,0" Name="cboDevicePort2" VerticalAlignment="Top" Width="120" />
+        <Label Content="Label" Height="147" HorizontalAlignment="Left" Margin="14,152,0,0" Name="lblStatus" VerticalAlignment="Top" Width="469" />
+        <Button Content="Connect" Height="23" HorizontalAlignment="Left" Margin="79,106,0,0" Name="cmdConnect1" VerticalAlignment="Top" Width="75" />
+        <Button Content="Connect" Height="23" HorizontalAlignment="Left" Margin="341,106,0,0" Name="cmdConnect2" VerticalAlignment="Top" Width="75" />
+    </Grid>
+</Window>

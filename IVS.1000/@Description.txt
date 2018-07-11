@@ -1,0 +1,12 @@
+﻿IVS.1000 - SNARE Financial Institution Edition
+
+Dependency:
+IVS.Applog > ivs.applog.dll
+IVS.Data > ivs.data.dll
+IVS.CTS > ivs.Cts.dll
+IVS.Eseek > ivs.eseek.dll
+IVS.ESeek.M280 > ivs.eseek.m280.dll
+IVS.Magtek > ivs.magtek.dll
+
+			Setup	Assy
+12/22/2014	1.3.0	1.3.0.*		Added Epson TSM-9000

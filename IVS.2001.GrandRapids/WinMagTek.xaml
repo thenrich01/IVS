@@ -1,0 +1,261 @@
+﻿<Window x:Class="WinMagTek"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Style="{StaticResource WinMagTek}">
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate x:Key="MatchlastColumnTemplate" >
+                <ContentControl x:Name="MyContentControl" Content="{Binding}" />
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding MatchLast}" Value="TRUE">
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Label Content="{Binding NameLast}" Background="Yellow" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding MatchLast}" Value="FALSE" >
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Label Content="{Binding NameLast}" Background="White" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+            <DataTemplate x:Key="MatchIDColumnTemplate" >
+                <ContentControl x:Name="MyContentControl" Content="{Binding}" />
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding MatchID}" Value="TRUE">
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Label Content="{Binding IDNumber}" Background="Yellow" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding MatchID}" Value="FALSE" >
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Label Content="{Binding IDNumber}" Background="White" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+        </Grid.Resources>
+        <Image Style="{StaticResource ImageIVSHeader}"/>
+        <Rectangle Name="recRecordNavigation" Margin="0,57,0,0" Style="{StaticResource RecRecordNav}"/>
+        <Button Name="cmdNavPrevious" ToolTip="Move back one record" Margin="11,65,0,0" Style="{StaticResource cmdNavButton}">
+            <Button.Content>
+                <Image Name="imgMoveBack1" Source="Resources/MoveBackBlue.png" Margin="0,0,0,0" Style="{StaticResource cmdNavButtonImage}"/>
+            </Button.Content>
+        </Button>
+        <Button Name="cmdNavNext" ToolTip="Move forward one record" Margin="230,65,0,0" Style="{StaticResource cmdNavButton}">
+            <Button.Content>
+                <Image Name="imgMoveForward1" Source="Resources/MoveForwardBlue.png" Margin="0,0,0,0" Style="{StaticResource cmdNavButtonImage}"/>
+            </Button.Content>
+        </Button>
+        <Button Name="cmdNavLast" ToolTip="Move to the latest record" Margin="280,65,0,0" Style="{StaticResource cmdNavButton}">
+            <Button.Content>
+                <Image Name="imgMoveLast" Source="Resources/MoveLastBlue.png" Margin="0,0,0,0" Style="{StaticResource cmdNavButtonImage}"/>
+            </Button.Content>
+        </Button>
+        <Label Name="lblRecordNavigation" Content="Record Navigation" Margin="50,70,0,0" Style="{StaticResource lblRecordNav}"/>
+        <Label Name="lblIDType" Content="Drivers License Or State ID" Margin="340,70,0,0" Style="{StaticResource lblRecordNav}" />
+        <Label Name="LabelTimeStamp" Content="Time:" Margin="690,70,0,0" Style="{StaticResource lblRecordNav}" />
+        <Label Name="lblTimeStamp" Content="12/22/2012 12:55:00 PM" Margin="750,70,0,0" Style="{StaticResource lblRecordNav}"/>
+        <Label Name="labelIDNumber" Content="ID / Account:" Margin="22,125,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblIDNumber" Content="" Margin="160,125,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="LabelNameLast" Content="Last Name:" Margin="22,155,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblNameLast" Content="" Margin="160,155,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="LabelNameFirst" Content="First Name:" Margin="22,185,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblNameFirst" Content="" Margin="160,185,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="LabelNameMiddle" Content="Middle Name:" Margin="22,215,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblNameMiddle" Content="" Margin="160,215,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="LabelAddressStreet" Content="Address:" Margin="22,255,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblAddressStreet" Content="" Margin="132,255,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="LabelAddressCity" Content="City:" Margin="22,285,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblAddressCity" Content="" Margin="132,285,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="LabelAddressState" Content="State:" Margin="22,315,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblAddressState" Content="" Margin="132,315,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="LabelAddressZip" Content="Zip:" Margin="262,315,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblAddressZip" Content="" Margin="372,315,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="LabelDateOfBirth" Content="DOB:" Margin="22,355,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblDateOfBirth" Content="" Margin="132,355,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="LabelAge" Content="Age:" Margin="262,355,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblAge" Content="" Margin="372,355,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="LabelSex" Content="Sex:" Margin="22,395,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblSex" Content="" Margin="132,395,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="LabelHeight" Content="Height:" Margin="22,425,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblHeight" Content="" Margin="132,425,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="LabelWeight" Content="Weight:" Margin="22,455,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblWeight" Content="" Margin="132,455,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="LabelHair" Content="Hair:" Margin="262,395,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblHair" Content="" Margin="372,395,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="LabelEyes" Content="Eyes:" Margin="262,425,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblEyes" Content="" Margin="372,425,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="LabelDateOfExpiration" Content="Exp Date:" Margin="22,495,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblDateOfExpiration" Content="" Margin="132,495,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="LabelDateOfIssue" Content="Issue Date:" Margin="262,495,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblDateOfIssue" Content="" Margin="372,495,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="LabelCitation" Content="Citation:" Margin="22,535,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblCitation" Content="3103000" Margin="132,535,0,0" Style="{StaticResource lblIDAccountDetail}" HorizontalContentAlignment="Right" />
+        <TextBox Name="txtCitation" Margin="211,537,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="80" MaxLength="6" />
+        <Image Name="imgCitationRequired" Margin="295,545,0,0" Style="{StaticResource ImageRequired}" />
+        <Label Name="LabelViolation" Content="Primary Violation:" Margin="22,565,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblViolation" Content="" Margin="40,595,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="LabelICR" Content="ICR:" Margin="22,625,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblICR" Margin="132,625,0,0" HorizontalAlignment="Left" VerticalAlignment= "Top" HorizontalContentAlignment="Right" />
+        <TextBox Name="txtICR" Margin="132,627,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="96" MaxLength="8" />
+        <Image Name="imgICRRequired" Margin="295,635,0,0" Style="{StaticResource ImageRequired}" />
+        <Label Name="LabelDisposition" Content="Disposition:" Margin="22,655,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblDisposition" Content="" Margin="132,655,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Button Name="cmdAddViolation" Margin="370,545,0,0" Style="{StaticResource cmdImageButton}" ToolTip="Add violations for this citation">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/red-plus-md.png" Name="imgCmdViolation" />
+                    <Label Content="Violation" Style="{StaticResource lblIDAccountDetail}" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <Button Name="cmdTEP" Margin="25,665,0,0" Style="{StaticResource cmdImageButton}" ToolTip="Send citation to Traffic Education Program">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/Minduka_Education.png" />
+                    <Label Content="T.E.P." Style="{StaticResource lblIDAccountDetail}" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <Button Name="cmdState" Margin="200,665,0,0" Style="{StaticResource cmdImageButton}" ToolTip="Send citation to State of Minnesota">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/minnesota.png" />
+                    <Label Content="State" Style="{StaticResource lblIDAccountDetail}" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <Button Name="cmdWarning" Margin="370,665,0,0" Style="{StaticResource cmdImageButton}" ToolTip="Issue warning">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/Warning.png" />
+                    <Label Content="Warning" Style="{StaticResource lblIDAccountDetail}" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <Label Name="lblAlerts" Content="Alerts:" Margin="532,125,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="labelAlertCount" Content="Alert Count:" Margin="830,125,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblAlertCount" Content="999" Margin="940,125,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <DataGrid Name="dgAlerts" Margin="532,155,0,0" Style="{StaticResource dgMagTek}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="dgAlerts_CmdView_Click">
+                                <Button.Content>
+                                    <Image Source="Resources/MagnifyingGlass.png" ToolTip="View details" Height="14" />
+                                </Button.Content>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Type" SortMemberPath="AlertType" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding AlertType}" Background="White" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding AlertID}" Visibility="Hidden" />
+                <DataGridTemplateColumn CellTemplate="{StaticResource MatchIDColumnTemplate}" Header="ID/Account" SortMemberPath="IDNumber" />
+                <DataGridTemplateColumn Header="First Name" SortMemberPath="NameFirst" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding NameFirst}" Background="White" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn CellTemplate="{StaticResource MatchlastColumnTemplate}" Header="Last Name" SortMemberPath="NameLast" />
+                <DataGridTemplateColumn Header="Alert Date" SortMemberPath="UpdateTS" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding UpdateTS,StringFormat=\{0:MM/dd/yyyy\}}" Background="White" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Name="lblSwipeHistory" Content="Swipe Activity:" Margin="532,360,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="labelSwipeCount" Content="Swipe Count:" Margin="819,360,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblSwipeCount" Content="999" Margin="939,360,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <DataGrid Name="dgSwipeScanHistory" Margin="532,390,0,0" Style="{StaticResource dgMagTek}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="dgSwipeScanHistory_CmdView_Click">
+                                <Button.Content>
+                                    <Image Source="Resources/MagnifyingGlass.png" ToolTip="View details" Height="14" />
+                                </Button.Content>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding SwipeScanID}" Visibility="Hidden" />
+                <DataGridTextColumn Binding="{Binding Location}" Header="Swipe Location" />
+                <DataGridTextColumn Binding="{Binding UserName}" Header="User" />
+                <DataGridTextColumn Binding="{Binding Phone}" Header="Phone" />
+                <DataGridTextColumn Binding="{Binding SwipeScanTS,StringFormat={}\{0:MM/dd/yyyy\}}" Header="Swipe Date" />
+                <DataGridTextColumn Binding="{Binding SwipeScanTS,StringFormat=t}" Header="Swipe Time"/>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Name="lblUserName" Content="" Margin="663,0,0,0" Style="{StaticResource lblSmall2}" />
+        <Label Name="lblStation" Content="" Margin="663,18,0,0" Style="{StaticResource lblSmall2}" />
+        <Label Name="lblLocation" Content="" Margin="663,36,0,0" Style="{StaticResource lblSmall2}" />
+        <Button Name="cmdClear" Margin="795,600,0,0" Style="{StaticResource cmdImageButton}" ToolTip="Clear all data" >
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/eraser.png" />
+                    <Label Content="Clear" Style="{StaticResource lblIDAccountDetail}"/>
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <Button Name="cmdManualEntry" Margin="600,600,0,0" Style="{StaticResource cmdImageButton}" ToolTip="Enter data manually" >
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/Pencil3.png" />
+                    <Label Content="Manual" Style="{StaticResource lblIDAccountDetail}"/>
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <Button Name="cmdNewAlert" Margin="600,665,0,0" Style="{StaticResource cmdImageButton}" ToolTip="Create new alert">
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/add-icon.png" />
+                    <Label Content="Alert" Style="{StaticResource lblIDAccountDetail}" />
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <Button Name="cmdClose" Margin="795,665,0,0" Style="{StaticResource cmdImageButton}" ToolTip="Close window" >
+            <Button.Content>
+                <StackPanel Orientation="Horizontal">
+                    <Image Source="Resources/Close_Box_Red.png" />
+                    <Label Content="Close" Style="{StaticResource lblIDAccountDetail}"/>
+                </StackPanel>
+            </Button.Content>
+        </Button>
+        <Rectangle Height="125" HorizontalAlignment="Left" Margin="17,125,0,0" Name="RecName" Stroke="Black" VerticalAlignment="Top" Width="490" />
+        <Rectangle Height="95" HorizontalAlignment="Left" Margin="17,255,0,0" Name="RecAddress" Stroke="Black" VerticalAlignment="Top" Width="490" />
+        <Rectangle Height="95" HorizontalAlignment="Left" Margin="17,395,0,0" Name="RecPhysical" Stroke="Black" VerticalAlignment="Top" Width="490" />
+        <Rectangle Height="185" HorizontalAlignment="Left" Margin="17,535,0,0" Name="RecTEP" Stroke="Black" VerticalAlignment="Top" Width="490" />
+        <Rectangle Height="35" HorizontalAlignment="Left" Margin="17,355,0,0" Name="RecAge" Stroke="Black" VerticalAlignment="Top" Width="490" />
+        <Rectangle Height="35" HorizontalAlignment="Left" Margin="17,495,0,0" Name="RecDates" Stroke="Black" VerticalAlignment="Top" Width="490" />
+    </Grid>
+</Window>

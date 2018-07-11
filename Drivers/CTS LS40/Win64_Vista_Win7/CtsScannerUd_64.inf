@@ -1,0 +1,102 @@
+;++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+; Installation inf for the Scanner Family CTS Electronics peripheral
+; Copyright (c) CTS Electronics SpA
+;
+;Module Name:
+;
+;    CTSSCANNERUD_64.INF
+;
+;Abstract:
+;    INF file for installing L40 CTS Electronics peripheral
+;    INF file for installing L75 CTS Electronics peripheral
+;    INF file for installing LS100 CTS Electronics peripheral
+;    INF file for installing LS150 CTS Electronics peripheral
+;    INF file for installing LS200 CTS Electronics peripheral
+;    INF file for installing LS515 CTS Electronics peripheral
+;    INF file for installing LS520 CTS Electronics peripheral
+;    INF file for installing LS800 CTS Electronics peripheral
+;    INF file for installing SB50 CTS Electronics peripheral
+;    INF file for installing SB600 CTS Electronics peripheral
+;
+;History:
+;    09 November 2007 : ver 01.00.00.01
+;-----------------------------------------------------------------------
+
+[Version]
+Signature="$CHICAGO$"
+Class=USB
+ClassGUID={36FC9E60-C465-11CF-8056-444553540000}
+Provider=%CTS%
+DriverVer=11/09/2007,01.00.00.01
+CatalogFile=CtsScannerUd_64.cat
+
+[DestinationDirs]
+CTSSCANNERUD.Files.Ext = 10,System32\Drivers
+
+[SourceDisksNames]
+1=%LSINSTALLDISK%,,,""
+
+[SourceDisksFiles]
+CTSSCANNERUD_64.sys = 1
+
+[Manufacturer]
+%MfgName%=Microsoft, NTamd64
+
+[Microsoft.NTamd64]
+%USB\Peripheral.L40_Desc%=CTSSCANNERUD.Dev, USB\VID_1136&PID_3531
+%USB\Peripheral.L75_Desc%=CTSSCANNERUD.Dev, USB\VID_1136&PID_3532
+%USB\Peripheral.Ls100_Desc%=CTSSCANNERUD.Dev, USB\VID_1136&PID_3231
+%USB\Peripheral.Ls150_Desc%=CTSSCANNERUD.Dev, USB\VID_1136&PID_3232
+%USB\Peripheral.Ls200_Desc%=CTSSCANNERUD.Dev, USB\VID_1136&PID_3331
+%USB\Peripheral.Ls515_Desc%=CTSSCANNERUD.Dev, USB\VID_1136&PID_3131
+%USB\Peripheral.Ls520_Desc%=CTSSCANNERUD.Dev, USB\VID_1136&PID_3132
+%USB\Peripheral.Ls800_Desc%=CTSSCANNERUD.Dev, USB\VID_1136&PID_3831
+%USB\Peripheral.Sb50_Desc%=CTSSCANNERUD.Dev, USB\VID_1136&PID_3631
+%USB\Peripheral.Sb600_Desc%=CTSSCANNERUD.Dev, USB\VID_1136&PID_3431
+
+[CTSSCANNERUD.Dev.NT]
+CopyFiles=CTSSCANNERUD.Files.Ext
+AddReg=CTSSCANNERUD.AddReg
+
+[CTSSCANNERUD.Dev.NT.Services]
+Addservice = CTSSCANNERUD, 0x00000002, CTSSCANNERUD.AddService
+
+[CTSSCANNERUD.AddService]
+DisplayName    = %CTSSCANNERUD.SvcDesc%
+ServiceType    = 1                  ; SERVICE_KERNEL_DRIVER
+StartType      = 3                  ; SERVICE_DEMAND_START
+ErrorControl   = 1                  ; SERVICE_ERROR_NORMAL
+ServiceBinary  = %10%\System32\Drivers\CTSSCANNERUD_64.sys
+LoadOrderGroup = Base
+AddReg=CTSSCANNERUD.AddService.AddReg
+
+[CTSSCANNERUD.AddService.AddReg]
+HKR,"Parameters","MaximumTransferSize",0x10001,4096
+HKR,"Parameters","DebugLevel",0x10001,2
+
+[CTSSCANNERUD.AddReg]
+HKR,,DevLoader,,*ntkern
+HKR,,NTMPDriver,,CTSSCANNERUD_64.sys
+
+
+[CTSSCANNERUD.Files.Ext]
+CTSSCANNERUD_64.sys
+
+
+;---------------------------------------------------------------;
+
+[Strings]
+CTS="CTS Electronics, Inc "
+MfgName="CTS Electronics Inc"
+USB\Peripheral.L40_Desc="CTS Electronics L40 USB"
+USB\Peripheral.L75_Desc="CTS Electronics L75 USB"
+USB\Peripheral.Ls100_Desc="CTS Electronics LS100 USB"
+USB\Peripheral.Ls150_Desc="CTS Electronics LS150 USB"
+USB\Peripheral.Ls200_Desc="CTS Electronics LS200 USB"
+USB\Peripheral.Ls515_Desc="CTS Electronics LS515 USB"
+USB\Peripheral.Ls520_Desc="CTS Electronics LS520 USB"
+USB\Peripheral.Ls800_Desc="CTS Electronics LS800 USB"
+USB\Peripheral.SB50_Desc="CTS Electronics SB50 USB"
+USB\Peripheral.Sb600_Desc="CTS Electronics SB600 USB"
+CTSSCANNERUD.SvcDesc="CTS Electronics Scanner Family USB driver"
+LSINSTALLDISK="BulkUsb Installation Disk"

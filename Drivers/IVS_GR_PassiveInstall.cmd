@@ -1,0 +1,1 @@
+D:\setup.exe /passive TARGETDIR="C:\Program Files\Identification Verification Systems\IVS.2001.GrandRapids" BTNDEVICE=2

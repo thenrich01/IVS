@@ -1,0 +1,95 @@
+﻿<Window x:Class="WinAlerts"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Style="{StaticResource WinAlerts}">
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate x:Key="MatchlastColumnTemplate" >
+                <ContentControl x:Name="MyContentControl" Content="{Binding}" />
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding MatchLast}" Value="TRUE">
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Label Content="{Binding NameLast}" Background="Yellow" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding MatchLast}" Value="FALSE" >
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Label Content="{Binding NameLast}" Background="White" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+            <DataTemplate x:Key="MatchIDColumnTemplate" >
+                <ContentControl x:Name="MyContentControl" Content="{Binding}" />
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding MatchID}" Value="TRUE">
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Label Content="{Binding IDNumber}" Background="Yellow" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding MatchID}" Value="FALSE" >
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Label Content="{Binding IDNumber}" Background="White" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+        </Grid.Resources>
+        <DataGrid Name="dgAlerts" Margin="7,5,0,0" Style="{StaticResource dgAdmin}">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="dgAlerts_CmdView_Click" ToolTip="View alert notes">
+                                <StackPanel>
+                                    <Image Source="Resources/icon_search_16px.gif" />
+                                </StackPanel>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding AlertID}" Visibility="Hidden"/>
+                <DataGridTemplateColumn CellTemplate="{StaticResource MatchIDColumnTemplate}" Header="ID/Account" SortMemberPath="IDNumber" />
+                <DataGridTemplateColumn CellTemplate="{StaticResource MatchlastColumnTemplate}" Header="Last Name" SortMemberPath="NameLast" />
+                <DataGridTemplateColumn Header="First Name" SortMemberPath="NameFirst" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding NameFirst}" Background="White" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="DOB" SortMemberPath="DateOfBirth" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding DateOfBirth,StringFormat=\{0:MM/dd/yyyy\}}" Background="White" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn Header="Alert Date" SortMemberPath="UpdateTS" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding UpdateTS,StringFormat=\{0:MM/dd/yyyy\}}" Background="White" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="cmdCancel" Content="Close" Margin="335,270,0,0" Style="{StaticResource cmdButton}" />
+    </Grid>
+</Window>

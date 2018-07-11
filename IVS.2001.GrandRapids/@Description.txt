@@ -1,0 +1,12 @@
+﻿IVS.2001 - SNARE Law Enforcement Edition
+Web Service
+Grand Rapids Edition
+
+Dependency:
+IVS.Applog > ivs.applog.dll
+IVS.Data.WS.TEP > ivs.data.WS.TEP.dll
+IVS.License > ivs.license.dll
+IVS.CTS > ivs.Cts.dll
+IVS.Eseek > ivs.eseek.dll
+IVS.ESeek.M280 > ivs.eseek.m280.dll
+IVS.Magtek > ivs.magtek.dll

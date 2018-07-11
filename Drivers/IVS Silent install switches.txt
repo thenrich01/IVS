@@ -1,0 +1,16 @@
+/targetdir="[TARGETDIR]"
+	OPTIONAL-Defaults to Program Files\Identification Verification Systems\[PRODUCTNAME]
+/SRVR="[SRVR]"
+	SQL Server
+/DB="[DB]" 
+	SQL Server database
+/USR="[USR]"
+	SQL Server login
+/PW="[PW]"
+	SQL Server password
+/BTNDEVICE="[BTNDEVICE]"
+	1:ESEEK, 2:CTS, 3:MAGTEK, 4:NO DEVICE
+/BTNDBTYPE="[BTNDBTYPE]"
+	1: MS Access, 2: MS SQL, 3:NO DB
+/BTNDB="[BTNDB]"
+	1:USE EXISTING DB, 2:NEW (OVERWRITE) DB

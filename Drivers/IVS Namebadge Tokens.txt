@@ -1,0 +1,14 @@
+IVS Namebadge Tokens
+
+VISITORNAME
+	Visitor first and last name
+VISITORLAST
+	Visitor last name
+VISITORFIRST
+	Visitor first name
+VISITING
+	Visiting name
+LOCATION
+	IVS location name
+STATION
+	IVS station name

@@ -1,0 +1,9 @@
+﻿IVS.2000 - SNARE Law Enforcement Edition
+
+Dependency:
+IVS.Applog > ivs.applog.dll
+IVS.Data > ivs.data.dll
+IVS.CTS > ivs.Cts.dll
+IVS.Eseek > ivs.eseek.dll
+IVS.ESeek.M280 > ivs.eseek.m280.dll
+IVS.Magtek > ivs.magtek.dll

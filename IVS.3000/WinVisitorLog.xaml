@@ -1,0 +1,219 @@
+﻿<Window x:Class="WinVisitorLog"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Style="{StaticResource WinVisitorLog}">
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate x:Key="AlertColumnTemplate" >
+                <ContentControl x:Name="MyContentControl" Content="{Binding}" />
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding Alerts}" Value="TRUE">
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Button Click="dgVisitorLog_CmdViewAlerts_Click" ToolTip="Alerts exist!">
+                                        <Button.Content>
+                                            <Image Source="/Resources/Shield_Red.png" Height="16" />
+                                        </Button.Content>
+                                    </Button>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Alerts}" Value="MAYBE" >
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Button Click="dgVisitorLog_CmdViewAlerts_Click" ToolTip="Possible alerts">
+                                        <Button.Content>
+                                            <Image Source="/Resources/Shield_Yellow.png" Height="16" />
+                                        </Button.Content>
+                                    </Button>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding Alerts}" Value="FALSE" >
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Image Source="/Resources/Shield_Green.png" Height="16" ToolTip="No alerts found" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+            <DataTemplate x:Key="CheckOutColumnTemplate" >
+                <ContentControl x:Name="MyContentControl" Content="{Binding}" />
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding CanCheckOut}" Value="TRUE">
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Button Click="dgVisitorLog_CmdVisitorCheckOut_Click" ToolTip="Check out visitor">
+                                        <Button.Content>
+                                            <Image Source="/Resources/Clock4.png" Height="16" />
+                                        </Button.Content>
+                                    </Button>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding CanCheckOut}" Value="FALSE" >
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Image Source="/Resources/Cancel__Red.png" Height="16" ToolTip="Visitor has already checked out" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+            <DataTemplate x:Key="PrintBadgeColumnTemplate" >
+                <ContentControl x:Name="MyContentControl" Content="{Binding}" />
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding CanCheckOut}" Value="TRUE">
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Button Click="dgVisitorLog_CmdVisitorPrintBadge_Click" ToolTip="Print visitor badge">
+                                        <Button.Content>
+                                            <Image Source="/Resources/action_print.gif" Height="16" />
+                                        </Button.Content>
+                                    </Button>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding CanCheckOut}" Value="FALSE" >
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Image Source="/Resources/Cancel__Red.png" Height="16" ToolTip="Visitor has already checked out" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+            <DataTemplate x:Key="NameLastColumnTemplate" >
+                <ContentControl x:Name="MyContentControl" Content="{Binding}" />
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding AnonymousFlag}" Value="TRUE">
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <TextBlock Text="Visitor" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding AnonymousFlag}" Value="FALSE" >
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding NameLast}" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+            <DataTemplate x:Key="NameFirstColumnTemplate" >
+                <ContentControl x:Name="MyContentControl" Content="{Binding}" />
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding AnonymousFlag}" Value="TRUE">
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <TextBlock Text="Anonymous" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding AnonymousFlag}" Value="FALSE" >
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding NameFirst}" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+            <DataTemplate x:Key="ImageAvailableColumnTemplate" >
+                <ContentControl x:Name="MyContentControl" Content="{Binding}" />
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding ImageAvailable}" Value="TRUE">
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Button Click="dgSearchResults_CmdViewImage_Click">
+                                        <Button.Content>
+                                            <Image Source="Resources/User1.png" ToolTip="View image" Height="16"/>
+                                        </Button.Content>
+                                    </Button>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding ImageAvailable}" Value="FALSE" >
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Image Source="Resources/Cancel__Red.png" ToolTip="Image not available" Height="16"/>
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+        </Grid.Resources>
+        <TextBox Height="26" HorizontalAlignment="Left" Margin="485,75,0,0" Name="txtReaderInput" VerticalAlignment="Top" Width="107" TextWrapping="Wrap" Foreground="{x:Null}"/>
+        <Image Name="ImageHeader" Style="{StaticResource ImageIVSHeader}" />
+        <Rectangle Name="RectangleHeader" Margin="-12,66,0,0" Style="{StaticResource RectangleHeader}" />
+        <DataGrid AutoGenerateColumns="False" Margin="125,115,12,12" Name="dgVisitorLog" DataContext="{Binding}" IsReadOnly="True" Height="584" Width="841">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn CellTemplate="{StaticResource ImageAvailableColumnTemplate}" SortMemberPath="ImageAvailable" />
+                <DataGridTemplateColumn CellTemplate="{StaticResource CheckOutColumnTemplate}" SortMemberPath="CanCheckOut" />
+                <DataGridTemplateColumn CellTemplate="{StaticResource PrintBadgeColumnTemplate}" SortMemberPath="CanCheckOut" />
+                <DataGridTemplateColumn CellTemplate="{StaticResource AlertColumnTemplate}" SortMemberPath="Alerts"/>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="dgVisitorLog_CmdVisitorNewAlert_Click" ToolTip="Create new alert">
+                                <Button.Content>
+                                    <Image Source="/Resources/add-icon.png" Height="16" />
+                                </Button.Content>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding SwipeScanID}" Visibility="Hidden" />
+                <DataGridTemplateColumn CellTemplate="{StaticResource NameFirstColumnTemplate}" Header="First Name" SortMemberPath="NameFirst" Width="*" />
+                <DataGridTemplateColumn CellTemplate="{StaticResource NameLastColumnTemplate}" Header="Last Name" SortMemberPath="NameLast" Width="*" />
+                <DataGridTextColumn Binding="{Binding Visiting}" Header="Visiting" Width="*" />
+                <DataGridTextColumn Binding="{Binding SwipeScanTS,StringFormat=t}" Header="Time In" Width="Auto" />
+                <DataGridTextColumn Binding="{Binding SwipeScanOutTS}" Header="Time Out" Width="Auto" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Label Content="lblToday" Margin="0,0,12,0" Name="lblToday" VerticalAlignment="Top" HorizontalAlignment="Right" Width="317" HorizontalContentAlignment="Right" />
+        <Label Name="labelVisitorsCurrent" Content="Current Visitors:" Margin="803,75,0,0" Style="{StaticResource lblRecordNav}" />
+        <Label Name="lblVisitorsCurrent" Content="999" Margin="0,75,20,0" Style="{StaticResource lblRecordNav}" HorizontalAlignment="Right" />
+        <Label Name="labelVisitorsToday" Content="Visitors Today:" Margin="593,75,0,0"  Style="{StaticResource lblRecordNav}" />
+        <Label Name="lblVisitorsToday" Content="999" Margin="703,75,0,0"  Style="{StaticResource lblRecordNav}" />
+        <CheckBox Name="cbDisplayAllVisitors" HorizontalAlignment="Left" Margin="8,150,0,0" VerticalAlignment="Top">
+            <AccessText TextWrapping="Wrap" Text="_Display All Visitors" Height="40" Width="90" />
+        </CheckBox>
+        <Button Name="cmdManualEntry" Content="No ID" Margin="8,225,0,0" Style="{StaticResource cmdButton}" Width="108" />
+        <Button Name="cmdVisitorsToday" Content="Visitors Today" Margin="8,300,0,0" Style="{StaticResource cmdButton}" Width="108" />
+        <Button Name="cmdCurrentVisitors" Content="Current Visitors" Margin="8,375,0,0" Style="{StaticResource cmdButton}" Width="108" />
+        <Button Name="cmdNewAlert" Content="New Alert" Margin="8,450,0,0" Style="{StaticResource cmdButton}" Width="108" />
+        <Button Name="cmdCancel" Content="Close" Margin="8,525,0,0" Style="{StaticResource cmdButton}" Width="108" />
+        <Button Name="cmdCTSReadMagStripe" Content="Mag" Margin="8,405,0,0" Style="{StaticResource cmdButton}" Width="108" Visibility="Hidden" />
+        <Button Name="cmdCTSScanID" Content="Scan" Margin="8,345,0,0" Style="{StaticResource cmdButton}" Width="108" Visibility="Hidden" />
+    </Grid>
+</Window>

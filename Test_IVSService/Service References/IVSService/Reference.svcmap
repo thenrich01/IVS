@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="4013ed20-b175-4f88-9fc4-59ebf00a489d" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings>
+      <CollectionMapping TypeName="System.Collections.Generic.List`1" Category="List" />
+    </CollectionMappings>
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://ivs-tepdemo.trafficed.net/IVS.WS.GrandRapids.IVSService.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service1.wsdl" MetadataType="Wsdl" ID="0eb96e8f-4a75-4515-a751-2040aa654e4b" SourceId="1" SourceUrl="http://ivs-tepdemo.trafficed.net/IVS.WS.GrandRapids.IVSService.svc/mex" />
+    <MetadataFile FileName="service2.xsd" MetadataType="Schema" ID="30ba5e61-7e37-42bf-a637-027963230b40" SourceId="1" SourceUrl="http://ivs-tepdemo.trafficed.net/IVS.WS.GrandRapids.IVSService.svc/mex" />
+    <MetadataFile FileName="service21.xsd" MetadataType="Schema" ID="273c95df-5930-45f4-8b3f-eff7175bac8f" SourceId="1" SourceUrl="http://ivs-tepdemo.trafficed.net/IVS.WS.GrandRapids.IVSService.svc/mex" />
+    <MetadataFile FileName="IVS.Data.GrandRapids.xsd" MetadataType="Schema" ID="68c581d8-fa37-47ee-bc3b-607e31a2c2a1" SourceId="1" SourceUrl="http://ivs-tepdemo.trafficed.net/IVS.WS.GrandRapids.IVSService.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,72 @@
+Client Requirements:
+	•	Connect devices AFTER installs.
+	•	Windows XP or later.
+	•	Microsoft .NET 4.0 Framework Client Profile.
+	•	Microsoft Visual C++ 2010 Redistributable.
+	•	Dymo Label V8.
+	•	ESeek device drivers are included in the client setup program.
+
+Server Requirements:
+	•	Microsoft SQL Server 2005 or later.
+	•	You will need to create a SQL database and a SQL user for the database.
+	•	User should have PUBLIC server role.
+	•	User should have db_owner access level on database.
+	•	Run the SQL Install script to create the database objects.
+	•	The SQL Server login details will be entered at client install time to build the connection string.
+
+Silent Install Switches:
+
+	/targetdir="[TARGETDIR]"
+		OPTIONAL-Defaults to Program Files\Identification Verification Systems\[PRODUCTNAME]
+	/SRVR="[SRVR]"
+		SQL Server
+	/DB="[DB]" 
+		SQL Server database
+	/USR="[USR]"
+		SQL Server login
+	/PW="[PW]"
+		SQL Server password
+	/BTNDEVICE="[BTNDEVICE]"
+		1:ESEEK, 2:CTS, 3:MAGTEK, 4:NO DEVICE
+	/BTNDBTYPE="[BTNDBTYPE]"
+		1: MS Access, 2: MS SQL, 3:NO DB
+	/BTNDB="[BTNDB]"
+		1:USE EXISTING DB, 2:NEW (OVERWRITE) DB
+
+	EXAMPLE:
+	D:\setup.exe /passive TARGETDIR="C:\Program Files\Identification Verification Systems\IVS.3000" BTNDEVICE=2
+
+Verify that the application configuration file has the correct connection string
+
+	File location: Program Files\Identification Verification Systems\[PRODUCTNAME]
+	File Name: ivs.exe.config
+
+	SQL Server:
+	<connectionStrings>
+        	<add name="IVS.MySettings.IVSConnectionString" connectionString="Provider=SQLOLEDB;Data Source=[SRVR];Initial Catalog=[DB];Persist Security Info=True;User ID=[USR];Password=[PW]" providerName="System.Data.SqlClient" />
+    	</connectionStrings>
+
+	Microsoft Access:
+	<connectionStrings>
+        	<add name="IVS.MySettings.IVSConnectionString" connectionString="Provider=Microsoft.ACE.OLEDB.12.0;Data Source=[SRVR]\IVS.3000.accdb" providerName="System.Data.OleDb" />
+    	</connectionStrings>
+
+Run Application as Administrator to register the Idecode.dll license key
+
+Device Driver Location:
+	
+	C:\Program Files\Identification Verification Systems\[PRODUCTNAME]\Drivers
+
+Name Badge Template Tokens:
+
+	VISITORNAME=Visitor first and last name
+	VISITORLAST=Visitor last name
+	VISITORFIRST=Visitor first name
+	VISITING=Visiting name
+	LOCATION=IVS location name
+	STATION=IVS station name
+
+Application Log Files:
+	System Variable: %programdata%
+	Windows 7: C:\ProgramData\Identification Verification Systems\[PRODUCTNAME]\Log Files
+	Windows XP: C:\Documents and Settings\All Users\Application Data\Identification Verification Systems\[PRODUCTNAME]\Log Files

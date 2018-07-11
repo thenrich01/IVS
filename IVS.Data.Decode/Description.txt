@@ -1,0 +1,1 @@
+﻿The IVS.Data.Decode Project builds a data access dll file used for communication between the IVS.WS.Decode webservice and SQL Server.

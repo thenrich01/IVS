@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:tns="http://schemas.datacontract.org/2004/07/IVS.Data.Decode" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/IVS.Data.Decode" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:complexType name="DecodedData">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="AddressCity" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressState" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressStreet" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="AddressZip" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Age" type="xs:int" />
+      <xs:element minOccurs="0" name="CCIssuer" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="CardType" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateOfBirth" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateOfExpiration" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="DateOfIssue" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Eyes" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Hair" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Height" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="IDAccountNumber" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameFirst" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameLast" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="NameMiddle" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Sex" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Weight" nillable="true" type="xs:string" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="DecodedData" nillable="true" type="tns:DecodedData" />
+</xs:schema>

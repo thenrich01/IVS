@@ -1,0 +1,98 @@
+﻿<Window x:Class="WinVisitorImage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" 
+    Style="{StaticResource WinVisitorImage}">
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate x:Key="MatchlastColumnTemplate" >
+                <ContentControl x:Name="MyContentControl" Content="{Binding}" />
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding MatchLast}" Value="TRUE">
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Label Content="{Binding NameLast}" Background="Yellow" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding MatchLast}" Value="FALSE" >
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Label Content="{Binding NameLast}" Background="White" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+            <DataTemplate x:Key="MatchIDColumnTemplate" >
+                <ContentControl x:Name="MyContentControl" Content="{Binding}" />
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding MatchID}" Value="TRUE">
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Label Content="{Binding IDNumber}" Background="Yellow" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding MatchID}" Value="FALSE" >
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Label Content="{Binding IDNumber}" Background="White" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+        </Grid.Resources>
+        <Label Name="lblNameFirst" Content="First Name:" Margin="25,10,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="txtNameFirst" Content="txtNameFirst" Margin="150,10,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblNameLast" Content="Last Name:" Margin="25,40,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="txtNameLast" Content="txtNameLast" Margin="150,40,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblVisiting" Content="Visiting:" Margin="25,70,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <ComboBox Name="cboVisiting" HorizontalAlignment="Left" Margin="150,70,0,0" VerticalAlignment="Top" Width="288" />
+        <CheckBox Name="cbAnonymous" Content="Anonymous" HorizontalAlignment="Left" Margin="150,100,0,0" VerticalAlignment="Top" />
+        <DataGrid Name="dgAlerts" Margin="13,130,0,0" Style="{StaticResource dgESeek}" Width="425">
+            <DataGrid.Columns>
+                <DataGridTemplateColumn>
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Click="dgAlerts_CmdView_Click">
+                                <Button.Content>
+                                    <Image Source="Resources/MagnifyingGlass.png" ToolTip="View details" Height="14" />
+                                </Button.Content>
+                            </Button>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTextColumn Binding="{Binding AlertID}" Visibility="Hidden" />
+                <DataGridTemplateColumn CellTemplate="{StaticResource MatchIDColumnTemplate}" Header="ID/Account" SortMemberPath="IDNumber" />
+                <DataGridTemplateColumn Header="First Name" SortMemberPath="NameFirst" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding NameFirst}" Background="White" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+                <DataGridTemplateColumn CellTemplate="{StaticResource MatchlastColumnTemplate}" Header="Last Name" SortMemberPath="NameLast" />
+                <DataGridTemplateColumn Header="Alert Date" SortMemberPath="UpdateTS" >
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Label Content="{Binding UpdateTS,StringFormat=\{0:MM/dd/yyyy\}}" Background="White" />
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button Name="cmdPrintBadge" Content=" Print" Margin="135,507,0,0" Style="{StaticResource cmdButton}" />
+        <Button Name="cmdSave" Content="Save" Margin="235,507,0,0" Style="{StaticResource cmdButton}" />
+        <Button Name="cmdDeny" Content="Deny" Margin="335,507,0,0" Style="{StaticResource cmdButton}" />
+        <Image Height="180" Margin="70,318,0,0" Name="imgScannedDocument" Stretch="Fill" VerticalAlignment="Top" Source="/IVS;component/Resources/NoImage.jpg" HorizontalAlignment="Left" Width="288" />
+    </Grid>
+</Window>

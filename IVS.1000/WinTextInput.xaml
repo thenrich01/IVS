@@ -1,0 +1,10 @@
+﻿<Window x:Class="WinTextInput"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Style="{StaticResource WinTextInput}">
+    <Grid>
+        <Label Content="Waiting for ID card..." Name="lblStatus" />
+        <TextBox Name="txtReaderInput" Width="319" Height="17" Margin="0,30,119,14" />
+        <Button Margin="340,30,0,0" Name="cmdCancel" Style="{StaticResource cmdCTS}" Content="Cancel"  />
+    </Grid>
+</Window>

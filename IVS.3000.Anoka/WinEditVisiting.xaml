@@ -1,0 +1,64 @@
+﻿<Window x:Class="WinEditVisiting"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Style="{StaticResource WinEditVisiting}">
+    <Grid>
+        <Grid.Resources>
+            <DataTemplate x:Key="MatchlastColumnTemplate" >
+                <ContentControl x:Name="MyContentControl" Content="{Binding}" />
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding MatchLast}" Value="TRUE">
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Label Content="{Binding NameLast}" Background="Yellow" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding MatchLast}" Value="FALSE" >
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Label Content="{Binding NameLast}" Background="White" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+            <DataTemplate x:Key="MatchIDColumnTemplate" >
+                <ContentControl x:Name="MyContentControl" Content="{Binding}" />
+                <DataTemplate.Triggers>
+                    <DataTrigger Binding="{Binding MatchID}" Value="TRUE">
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Label Content="{Binding IDNumber}" Background="Yellow" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                    <DataTrigger Binding="{Binding MatchID}" Value="FALSE" >
+                        <Setter TargetName="MyContentControl" Property="ContentTemplate">
+                            <Setter.Value>
+                                <DataTemplate>
+                                    <Label Content="{Binding IDNumber}" Background="White" />
+                                </DataTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </DataTrigger>
+                </DataTemplate.Triggers>
+            </DataTemplate>
+        </Grid.Resources>
+        <Label Name="lblNameFirst" Content="First Name:" Margin="25,10,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="txtNameFirst" Content="txtNameFirst" Margin="150,10,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblNameLast" Content="Last Name:" Margin="25,40,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="txtNameLast" Content="txtNameLast" Margin="150,40,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <Label Name="lblVisiting" Content="Visiting:" Margin="25,70,0,0" Style="{StaticResource lblIDAccountDetail}" />
+        <ComboBox Name="cboVisiting" HorizontalAlignment="Left" Margin="150,70,0,0" VerticalAlignment="Top" Width="285" />
+        <Button Name="cmdPrintBadge" Content=" Print" Margin="135,130,0,0" Style="{StaticResource cmdButton}" />
+        <Button Name="cmdSave" Content="Save" Margin="235,130,0,0" Style="{StaticResource cmdButton}" />
+        <Button Name="cmdClose" Content="Close" Margin="335,130,0,0" Style="{StaticResource cmdButton}" />
+    </Grid>
+</Window>

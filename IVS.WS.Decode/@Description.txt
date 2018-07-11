@@ -1,0 +1,127 @@
+﻿The IVS.WS.Decode Project builds a WCF webservice dll file used for decoding the ID raw data.
+Dependency:
+	IVS.Data.Decode.dll - Data access file. Webservice > SQL Server communication
+	IDecode.dll - IDecode file
+	IDC_PC01.dll - IDecode file
+	IVS.Applog.dll - Application logging
+
+App.config File:
+The App.Config (IVS.WS.Decode.dll.config) file for the IVS.WS.Decode needs to have the bindings for the IVS.WS.Decode webservice
+
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections>
+  </configSections>
+  <connectionStrings>
+    <add name="IVS.WS.Decode.My.MySettings.ConnectionString" connectionString="Data Source=7STSYSSQL01;Initial Catalog=IVS;Persist Security Info=True;User ID=ivs;Password=XXX"
+      providerName="System.Data.SqlClient" />
+  </connectionStrings>
+  <system.web>
+    <compilation debug="true" />
+  </system.web>
+  <!-- When deploying the service library project, the content of the config file must be added to the host's 
+  app.config file. System.Configuration does not support config files for libraries. -->
+  <system.serviceModel>
+    <services>
+      <service name="IVS.WS.Decode.IVSDecodeService">
+        <endpoint address="" binding="wsHttpBinding" contract="IVS.WS.Decode.IIVSDecode">
+          <identity>
+            <dns value="localhost" />
+          </identity>
+        </endpoint>
+        <endpoint address="mex" binding="mexHttpBinding" contract="IMetadataExchange" />
+        <host>
+          <baseAddresses>
+            <add baseAddress="http://localhost:8732/Design_Time_Addresses/IVS.WS.Decode/Service1/" />
+          </baseAddresses>
+        </host>
+      </service>
+    </services>
+    <behaviors>
+      <serviceBehaviors>
+        <behavior>
+          <!-- To avoid disclosing metadata information, 
+          set the value below to false and remove the metadata endpoint above before deployment -->
+          <serviceMetadata httpGetEnabled="True"/>
+          <!-- To receive exception details in faults for debugging purposes, 
+          set the value below to true.  Set to false before deployment 
+          to avoid disclosing exception information -->
+          <serviceDebug includeExceptionDetailInFaults="False" />
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+  </system.serviceModel>
+</configuration>
+
+Webserver:
+The root folder needs to have the following files:
+	IVS.WS.Decode.IVSDecodeService
+	web.config
+
+The bin folder needs to contain the following files:
+	IDC_PC01.dll
+	IDecode.dll
+	IVS.Applog.dll
+	IVS.Data.Decode.dll
+	IVS.WS.Decode.dll
+	IVS.WS.Decode.dll.config
+
+WEB.CONFIG FILE:
+<?xml version="1.0" encoding="utf-8" ?>
+<configuration>
+  <configSections>
+  </configSections>
+  <connectionStrings>
+    <add name="IVS.WS.Decode.My.MySettings.ConnectionString" connectionString="Data Source=DIVSOL;Initial Catalog=IVS_Decode;Persist Security Info=True;User ID=ivs_decode;Password=D1v3r10n"
+      providerName="System.Data.SqlClient" />
+  </connectionStrings>
+  <system.web>
+    <compilation debug="true" />
+  </system.web>
+  <!-- When deploying the service library project, the content of the config file must be added to the host's 
+  app.config file. System.Configuration does not support config files for libraries. -->
+  <system.serviceModel>
+    <services>
+      <service name="IVS.WS.Decode.IVSDecodeService">
+        <endpoint name="Dev" address="http://IVS-Decode.Trafficed.net/IVS.WS.Decode.IVSDecodeService.svc" binding="basicHttpBinding" contract="IVS.WS.Decode.IIVSDecode">
+          <identity>
+            <dns value="localhost" />
+          </identity>
+        </endpoint>
+        <endpoint name="SSL" address="https://IVS-Decode.Trafficed.net/IVS.WS.Decode.IVSDecodeService.svc/Encrypted" binding="wsHttpBinding" contract="IVS.WS.Decode.IIVSDecode" bindingConfiguration="SSLBinding">
+          <identity>
+            <dns value="localhost" />
+          </identity>
+        </endpoint>
+        <endpoint address="mex" binding="mexHttpBinding" contract="IMetadataExchange" />
+        <host>
+          <baseAddresses>
+            <add baseAddress="http://IVS-Decode.Trafficed.net/IVS.WS.Decode/Service1/" />
+          </baseAddresses>
+        </host>
+      </service>
+    </services>
+    <behaviors>
+      <serviceBehaviors>
+        <behavior>
+          <!-- To avoid disclosing metadata information, 
+          set the value below to false and remove the metadata endpoint above before deployment -->
+          <serviceMetadata httpGetEnabled="True"/>
+          <!-- To receive exception details in faults for debugging purposes, 
+          set the value below to true.  Set to false before deployment 
+          to avoid disclosing exception information -->
+          <serviceDebug includeExceptionDetailInFaults="False" />
+        </behavior>
+      </serviceBehaviors>
+    </behaviors>
+     <bindings>
+      <wsHttpBinding>
+        <binding name="SSLBinding">
+          <security mode="Transport">
+            <transport clientCredentialType="None" />
+          </security>
+        </binding>
+      </wsHttpBinding>
+    </bindings>
+  </system.serviceModel>
+</configuration>

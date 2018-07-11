@@ -1,0 +1,23 @@
+﻿<Window x:Class="WinDevices"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Style="{StaticResource WinDevices}">
+    <Grid>
+        <Label Content="Input Device:" HorizontalAlignment="Left" Margin="10,10,0,0" Name="lblInputDevice" VerticalAlignment="Top" />
+        <ComboBox Name="cboDevices" Margin="200,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" />
+        <Label Name="lblDevicePort" Content="Device Port:" Margin="10,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <ComboBox Name="cboDevicePort" Margin="200,40,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" />
+        <Button Name="cmdDeviceVerify" Content="Verify" Margin="336,41,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" />
+        <Label Name="lblDeviceVerifyStatus" Content="lblDeviceVerifyStatus" Margin="28,70,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="402" />
+        <Label Name="LabelDeviceModelNumber" Content="Model Number:" Margin="10,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Name="lblDeviceModelNumber" Content="lblDeviceModelNumber" Margin="200,100,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Name="LabelDeviceSerialNumber" Content="Serial Number:" Margin="10,130,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Name="lblDeviceSerialNumber" Content="lblDeviceSerialNumber" Margin="200,130,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Name="LabelDeviceApplicationRev" Content="Application Revision:" Margin="10,160,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Name="lblDeviceApplicationRev" Content="lblDeviceApplicationRev" Margin="200,160,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Name="LabelDeviceHardwareRev" Content="Hardware Revision:" Margin="10,190,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Label Name="lblDeviceHardwareRev" Content="lblDeviceHardwareRev" Margin="200,190,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" />
+        <Button Name="cmdSave" Content="Save" Margin="235,260,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" />
+        <Button Name="cmdCancel" Content="Close" Margin="340,260,0,0" HorizontalAlignment="Left" VerticalAlignment="Top" Width="75" />
+    </Grid>
+</Window>

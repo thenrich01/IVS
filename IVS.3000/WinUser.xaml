@@ -1,0 +1,38 @@
+﻿<Window x:Class="WinUser"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    Style="{StaticResource WinUser}">
+    <Grid>
+        <Label Name="lblUserNameFirst" Content="First Name:" Margin="10,10,0,0" Style="{StaticResource label}" />
+        <TextBox Name="txtUserNameFirst" Margin="140,10,0,0" Style="{StaticResource TextBox}" TabIndex="10" MaxLength="25" />
+        <Image Name="imgNameFirstRequired" Margin="415,15,0,0" Style="{StaticResource ImageRequired}" />
+        <Label Name="lblUserNameLast" Content="Last Name:" Margin="10,40,0,0" Style="{StaticResource label}" />
+        <TextBox Name="txtUserNameLast" Margin="140,40,0,0" Style="{StaticResource TextBox}" TabIndex="20" MaxLength="25" />
+        <Image Name="imgNameLastRequired" Margin="415,45,0,0" Style="{StaticResource ImageRequired}" />
+        <Label Name="lblUserEmail" Content="Email:" Margin="10,70,0,0" Style="{StaticResource label}" />
+        <TextBox Name="txtUserEmail" Margin="140,70,0,0" Style="{StaticResource TextBox}" TabIndex="30" />
+        <Label Name="lblUserPhone" Content="Phone:" Margin="10,100,0,0" Style="{StaticResource label}" />
+        <TextBox Name="txtUserPhone" Margin="140,100,0,0" Style="{StaticResource TextBox}" TabIndex="40" MaxLength="20" />
+        <Label Name="lblUserName" Content="Username:" Margin="10,130,0,0" Style="{StaticResource label}" />
+        <TextBox Name="txtUserName" Margin="140,130,0,0" Style="{StaticResource TextBox}" TabIndex="50" MaxLength="15" />
+        <Image Name="imgUserNameRequired" Margin="415,135,0,0" Style="{StaticResource ImageRequired}" />
+        <Label Name="lblPassword" Content="Password:" Margin="10,160,0,0" Style="{StaticResource label}" />
+        <TextBox Name="txtPassword" Margin="140,160,0,0" Style="{StaticResource TextBox}" TabIndex="60" MaxLength="10" />
+        <Image Name="imgPasswordRequired" Margin="415,165,0,0" Style="{StaticResource ImageRequired}" />
+        <CheckBox Name="cbIsActive" Content="Active" Margin="140,250,0,0" Style="{StaticResource CheckBox}" TabIndex="70" />
+        <CheckBox Name="cbIsAlert" Content="Create Alerts" Margin="270,250,0,0" Style="{StaticResource CheckBox}" TabIndex="75" />
+        <CheckBox Name="cbIsAdmin" Content="Administrator" Margin="140,275,0,0" Style="{StaticResource CheckBox}" TabIndex="80" />
+        <CheckBox Name="cbIsSearch" Content="Can Search" Margin="270,275,0,0" Style="{StaticResource CheckBox}" TabIndex="80" />
+        <Label Name="lblLastUpdate" Content="lblLastUpdate" Margin="10,295,0,0" Style="{StaticResource lblSmall}" />
+        <Button Name="cmdDelete" Content="Delete" Margin="130,330,0,0" Style="{StaticResource cmdButton}" TabIndex="90" />
+        <Button Name="cmdSave" Content="Save" Margin="230,330,0,0" Style="{StaticResource cmdButton}" TabIndex="100" />
+        <Button Name="cmdCancel" Content="Cancel" Margin="330,330,0,0" Style="{StaticResource cmdButton}" TabIndex="110" />
+        <Label Content="Location:" Margin="15,190,0,0" Name="lblLocation" Style="{StaticResource label}" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="211,190,0,0" Name="cboLocations" VerticalAlignment="Top" Width="189" />
+        <Label Content="Station:" Margin="15,220,0,0" Name="lblStation" Style="{StaticResource label}" />
+        <ComboBox Height="23" HorizontalAlignment="Left" Margin="211,220,0,0" Name="cboStations" VerticalAlignment="Top" Width="189" />
+        <CheckBox Content="Global" Margin="140,195,0,0" Name="cbLocationGlobal" Style="{StaticResource CheckBox}" TabIndex="1100" Width="65" />
+        <CheckBox Content="Global" Margin="140,225,0,0" Name="cbClientGlobal" Style="{StaticResource CheckBox}" TabIndex="1100" Width="65" />
+    </Grid>
+</Window>
+
